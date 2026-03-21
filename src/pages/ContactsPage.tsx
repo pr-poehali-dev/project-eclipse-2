@@ -1,6 +1,32 @@
+import { useState } from "react"
 import Header from "@/components/landing/Header"
 import Footer from "@/components/landing/Footer"
 import Icon from "@/components/ui/icon"
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false)
+
+  const handle = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <button
+      onClick={handle}
+      title="Копировать"
+      className="ml-auto p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+    >
+      {copied
+        ? <Icon name="Check" size={16} className="text-green-500" />
+        : <Icon name="Copy" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
+      }
+    </button>
+  )
+}
 
 export default function ContactsPage() {
   return (
@@ -17,45 +43,54 @@ export default function ContactsPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <a
-              href="tel:+79206405120"
-              className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3 group"
-            >
+            <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
               <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                 <Icon name="Phone" size={22} className="text-white" />
               </div>
-              <div>
+              <div className="w-full">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Телефон</p>
-                <p className="text-lg font-semibold text-black dark:text-white group-hover:text-[#7A7FEE] transition-colors">
-                  +7 920 640 51 20
-                </p>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="tel:+79206405120"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
+                  >
+                    +7 920 640 51 20
+                  </a>
+                  <CopyButton text="+79206405120" />
+                </div>
               </div>
-            </a>
+            </div>
 
-            <a
-              href="mailto:csiperm@yandex.ru"
-              className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3 group"
-            >
+            <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
               <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                 <Icon name="Mail" size={22} className="text-white" />
               </div>
-              <div>
+              <div className="w-full">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Электронная почта</p>
-                <p className="text-lg font-semibold text-black dark:text-white group-hover:text-[#7A7FEE] transition-colors">
-                  csiperm@yandex.ru
-                </p>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="mailto:csiperm@yandex.ru"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
+                  >
+                    csiperm@yandex.ru
+                  </a>
+                  <CopyButton text="csiperm@yandex.ru" />
+                </div>
               </div>
-            </a>
+            </div>
 
             <div className="card p-6 shadow-md flex flex-col items-start gap-3">
               <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                 <Icon name="MapPin" size={22} className="text-white" />
               </div>
-              <div>
+              <div className="w-full">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Адрес офиса</p>
-                <p className="text-lg font-semibold text-black dark:text-white">
-                  г. Пермь, ул. Целинная, 49
-                </p>
+                <div className="flex items-center gap-2">
+                  <p className="text-lg font-semibold text-black dark:text-white">
+                    г. Пермь, ул. Целинная, 49
+                  </p>
+                  <CopyButton text="г. Пермь, ул. Целинная, 49" />
+                </div>
               </div>
             </div>
           </div>
