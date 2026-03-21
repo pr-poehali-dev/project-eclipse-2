@@ -6,16 +6,19 @@ export default function CallToAction() {
       <div className="p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-start">
         <div className="w-full md:w-3/5 z-10">
           <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-            Ваша следующая идея <span className="text-[#7A7FEE] dark:text-[#7A7FEE]">начинается</span> здесь
+            Свяжитесь с нами — <span className="text-[#7A7FEE] dark:text-[#7A7FEE]">ответим</span> быстро
           </h2>
           <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Есть идея или проблема, которую нужно решить?
+            Нужен конкретный прибор, сертификат или консультация по оборудованию?
           </p>
           <p className="mb-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Давайте обсудим. Мы поможем найти лучший подход, составить план и понять, подходим ли мы друг другу.
+            Оставьте заявку — менеджер свяжется с вами в рабочее время и поможет подобрать нужное решение.
           </p>
-          <div>
+          <div className="flex flex-wrap gap-4">
             <ContactFormButton />
+            <a href="tel:+78001234567" className="btn-secondary text-black dark:text-white">
+              +7 (800) 123-45-67
+            </a>
           </div>
         </div>
 
