@@ -88,7 +88,7 @@ export default function ContactsPage() {
                 <div className="flex items-center gap-2">
                   <a
                     href="tel:+79026405120"
-                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded px-1 -mx-1 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                   >+7 902 640 51 20</a>
                   <div className="ml-auto flex-shrink-0">
                     <CopyButton text="+79026405120" />
@@ -108,7 +108,7 @@ export default function ContactsPage() {
                     href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded px-1 -mx-1 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                   >
                     csiperm@yandex.ru
                   </a>
@@ -128,7 +128,7 @@ export default function ContactsPage() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={openRoute}
-                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors text-left rounded px-1 -mx-1 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors text-left rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                   >
                     г. Пермь, ул. Целинная, 49
                   </button>
