@@ -53,9 +53,7 @@ export default function ContactsPage() {
                   <a
                     href="tel:+79206405120"
                     className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
-                  >
-                    +7 920 640 51 20
-                  </a>
+                  >+7 902 640 51 20</a>
                   <CopyButton text="+79206405120" />
                 </div>
               </div>
