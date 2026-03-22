@@ -69,7 +69,9 @@ export default function ContactsPage() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Электронная почта</p>
                 <div className="flex items-center gap-2">
                   <a
-                    href="mailto:csiperm@yandex.ru"
+                    href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
                   >
                     csiperm@yandex.ru
