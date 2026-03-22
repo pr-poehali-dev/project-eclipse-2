@@ -81,7 +81,9 @@ export default function ServicesPage() {
               Свяжитесь с нами — обсудим ваш проект и подберём оптимальное решение.
             </p>
             <a
-              href="mailto:csiperm@yandex.ru"
+              href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2"
             >
               <Icon name="Mail" size={16} />

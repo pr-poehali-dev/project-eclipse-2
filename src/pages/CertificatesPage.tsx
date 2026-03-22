@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async"
+import { useState } from "react"
 import Header from "@/components/landing/Header"
 import Footer from "@/components/landing/Footer"
 import Icon from "@/components/ui/icon"
@@ -10,6 +11,7 @@ const certificates = [
     description: "Допуск к работам, которые оказывают влияние на безопасность объектов капитального строительства.",
     icon: "Award",
     status: "Действует",
+    imageUrl: null,
   },
   {
     id: 2,
@@ -17,6 +19,7 @@ const certificates = [
     description: "Сертификат системы менеджмента качества. Подтверждает соответствие процессов международным стандартам.",
     icon: "BadgeCheck",
     status: "Действует",
+    imageUrl: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/e54fef4f-73c1-4771-aeb8-2370db844a1f.png",
   },
   {
     id: 3,
@@ -24,6 +27,7 @@ const certificates = [
     description: "Лицензия на осуществление деятельности по подготовке проектной документации.",
     icon: "FileText",
     status: "Действует",
+    imageUrl: null,
   },
   {
     id: 4,
@@ -31,10 +35,24 @@ const certificates = [
     description: "Собственная лаборатория с аккредитацией для проведения испытаний строительных материалов и конструкций в соответствии с ГОСТ.",
     icon: "FlaskConical",
     status: "Действует",
+    imageUrl: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/aa2f3575-6d52-4f08-a982-8d7efa90a7f0.png",
   },
 ]
 
 export default function CertificatesPage() {
+  const [modalImage, setModalImage] = useState<string | null>(null)
+  const [modalTitle, setModalTitle] = useState<string>("")
+
+  const openModal = (imageUrl: string, title: string) => {
+    setModalImage(imageUrl)
+    setModalTitle(title)
+  }
+
+  const closeModal = () => {
+    setModalImage(null)
+    setModalTitle("")
+  }
+
   return (
     <main className="min-h-screen bg-white dark:bg-[#111111]">
       <Helmet>
@@ -57,7 +75,7 @@ export default function CertificatesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {certificates.map((cert) => (
-              <div key={cert.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div key={cert.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
                 <div className="flex items-start justify-between mb-4">
                   <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                     <Icon name={cert.icon} fallback="Award" size={22} className="text-white" />
@@ -68,7 +86,16 @@ export default function CertificatesPage() {
                   </span>
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">{cert.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">{cert.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 text-sm flex-1">{cert.description}</p>
+                {cert.imageUrl && (
+                  <button
+                    onClick={() => openModal(cert.imageUrl!, cert.title)}
+                    className="mt-4 flex items-center gap-2 text-[#7A7FEE] hover:text-[#5a5fd4] text-sm font-medium transition-colors"
+                  >
+                    <Icon name="Eye" size={16} />
+                    Посмотреть документ
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -85,7 +112,12 @@ export default function CertificatesPage() {
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   Предоставим заверенные копии сертификатов и лицензий по запросу. Свяжитесь с нами удобным способом.
                 </p>
-                <a href="mailto:csiperm@yandex.ru" className="btn-primary inline-flex items-center gap-2">
+                <a
+                  href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center gap-2"
+                >
                   <Icon name="Mail" size={16} />
                   Запросить документы
                 </a>
@@ -95,6 +127,35 @@ export default function CertificatesPage() {
         </section>
       </div>
       <Footer />
+
+      {modalImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative bg-white dark:bg-[#1a1a1a] rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 className="text-base font-semibold text-black dark:text-white pr-4">{modalTitle}</h3>
+              <button
+                onClick={closeModal}
+                className="text-gray-500 hover:text-gray-800 dark:hover:text-white transition-colors shrink-0"
+              >
+                <Icon name="X" size={22} />
+              </button>
+            </div>
+            <div className="overflow-auto p-4 flex items-center justify-center">
+              <img
+                src={modalImage}
+                alt={modalTitle}
+                className="max-w-full max-h-[75vh] object-contain rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
