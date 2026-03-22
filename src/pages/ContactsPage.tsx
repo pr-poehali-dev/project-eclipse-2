@@ -87,17 +87,17 @@ export default function ContactsPage() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Адрес офиса</p>
                 <div className="flex items-center gap-2">
                   <a
-                    href="https://yandex.ru/maps/?rtext=~Пермь,+ул.+Целинная,+49&rtt=auto"
+                    href="https://yandex.ru/maps/?rtext=~57.990655%2C56.190887&rtt=auto"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => {
                       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
                       if (isMobile) {
                         e.preventDefault()
-                        window.location.href = "yandexmaps://maps.yandex.ru/?rtext=~Пермь,+ул.+Целинная,+49&rtt=auto"
+                        window.location.href = "yandexmaps://maps.yandex.ru/?rtext=~57.990655%2C56.190887&rtt=auto"
                         setTimeout(() => {
-                          window.open("https://yandex.ru/maps/?rtext=~Пермь,+ул.+Целинная,+49&rtt=auto", "_blank")
-                        }, 2000)
+                          window.open("https://yandex.ru/maps/?rtext=~57.990655%2C56.190887&rtt=auto", "_blank")
+                        }, 1500)
                       }
                     }}
                     className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
