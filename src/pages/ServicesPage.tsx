@@ -6,39 +6,52 @@ import Icon from "@/components/ui/icon"
 const services = [
   {
     id: 1,
-    title: "Строительная экспертиза",
-    description: "Проведение независимой строительно-технической экспертизы объектов. Оценка качества строительных работ, материалов и конструкций.",
-    icon: "Search",
+    title: "Строительный контроль",
+    description: "Комплексный контроль качества строительства на всех этапах: от нулевого цикла до сдачи объекта. Проверяем соответствие работ проекту, нормам и стандартам — защищаем ваши интересы.",
+    icon: "ShieldCheck",
+    featured: true,
   },
   {
     id: 2,
-    title: "Проектирование",
-    description: "Разработка проектной и рабочей документации для объектов строительства различного назначения в соответствии с нормами и стандартами.",
-    icon: "PenTool",
+    title: "Технический надзор",
+    description: "Авторский и технический надзор за ходом строительства. Контроль применяемых материалов, технологий и сроков выполнения работ.",
+    icon: "Eye",
+    featured: false,
   },
   {
     id: 3,
-    title: "Технический надзор",
-    description: "Авторский и технический надзор за строительством. Контроль качества выполняемых работ на всех этапах реализации проекта.",
-    icon: "Eye",
+    title: "Строительная экспертиза",
+    description: "Независимая строительно-техническая экспертиза объектов. Оценка качества выполненных работ, выявление дефектов и нарушений.",
+    icon: "Search",
+    featured: false,
   },
   {
     id: 4,
-    title: "Инженерные изыскания",
-    description: "Геодезические, геологические и экологические изыскания для подготовки к строительству и проектированию.",
-    icon: "MapPin",
+    title: "Проектирование",
+    description: "Разработка проектной и рабочей документации для объектов строительства различного назначения в соответствии с нормами и стандартами.",
+    icon: "PenTool",
+    featured: false,
   },
   {
     id: 5,
-    title: "Сметное дело",
-    description: "Составление смет, проверка и экспертиза сметной документации. Ценообразование в строительстве по актуальным нормативам.",
-    icon: "Calculator",
+    title: "Инженерные изыскания",
+    description: "Геодезические, геологические и экологические изыскания для подготовки к строительству и проектированию.",
+    icon: "MapPin",
+    featured: false,
   },
   {
     id: 6,
+    title: "Сметное дело",
+    description: "Составление смет, проверка и экспертиза сметной документации. Ценообразование в строительстве по актуальным нормативам.",
+    icon: "Calculator",
+    featured: false,
+  },
+  {
+    id: 7,
     title: "Консультации и сопровождение",
     description: "Юридическое и техническое сопровождение строительных проектов, консультации по нормативной базе и согласованиям.",
     icon: "MessageSquare",
+    featured: false,
   },
 ]
 
@@ -46,10 +59,10 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#111111]">
       <Helmet>
-        <title>Услуги — Центр Строительного Инжиниринга в Перми</title>
-        <meta name="description" content="Строительная экспертиза, проектирование, технический надзор, инженерные изыскания, сметное дело и консультации. Полный спектр строительных услуг в Перми." />
-        <meta property="og:title" content="Услуги — Центр Строительного Инжиниринга в Перми" />
-        <meta property="og:description" content="Полный спектр услуг в области строительства и проектирования в Перми." />
+        <title>Услуги — строительный контроль и надзор в Перми</title>
+        <meta name="description" content="Строительный контроль, технический надзор, экспертиза, проектирование, инженерные изыскания и сметное дело в Перми. Защищаем интересы заказчика." />
+        <meta property="og:title" content="Услуги — строительный контроль и надзор в Перми" />
+        <meta property="og:description" content="Строительный контроль и технический надзор в Перми. Полный спектр услуг для заказчиков строительства." />
         <link rel="canonical" href="/services" />
       </Helmet>
       <Header />
@@ -60,16 +73,24 @@ export default function ServicesPage() {
             <span className="block text-[#7A7FEE]">услуги</span>
           </h1>
           <p className="mb-12 max-w-2xl text-gray-700 dark:text-gray-300">
-            Центр Строительного Инжиниринга предоставляет полный спектр услуг в области строительства и проектирования. Работаем профессионально и в срок.
+            Центр Строительного Инжиниринга — профессиональный строительный контроль и технический надзор в Перми. Работаем на стороне заказчика, обеспечивая качество на каждом этапе.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div key={service.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm">
+              <div
+                key={service.id}
+                className={`card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 ${service.featured ? "md:col-span-2 lg:col-span-3 border-2 border-[#7A7FEE]" : ""}`}
+              >
+                <div className={`${service.featured ? "bg-[#7A7FEE]" : "bg-[#7A7FEE]"} w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm`}>
                   <Icon name={service.icon} fallback="CircleDot" size={22} className="text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">{service.title}</h3>
+                {service.featured && (
+                  <span className="inline-block text-xs font-semibold text-[#7A7FEE] border border-[#7A7FEE] rounded-full px-3 py-1 mb-3 uppercase tracking-wide">
+                    Основная услуга
+                  </span>
+                )}
+                <h3 className={`font-semibold mb-2 text-black dark:text-white ${service.featured ? "text-2xl" : "text-xl"}`}>{service.title}</h3>
                 <p className="text-gray-700 dark:text-gray-300 text-sm">{service.description}</p>
               </div>
             ))}
