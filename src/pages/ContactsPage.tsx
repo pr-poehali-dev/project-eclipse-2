@@ -94,8 +94,16 @@ export default function ContactsPage() {
                       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
                       if (isMobile) {
                         e.preventDefault()
-                        const webUrl = "https://yandex.ru/maps/50/perm/?mode=routes&rtext=~Пермь, улица Целинная, 49&rtt=auto"
-                        window.location.href = webUrl
+                        const fallback = "https://yandex.ru/maps/50/perm/?mode=routes&rtext=~%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%2C+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A6%D0%B5%D0%BB%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F%2C+49&rtt=auto"
+                        const isAndroid = /Android/i.test(navigator.userAgent)
+                        if (isAndroid) {
+                          window.location.href = "intent://build_route_on_map?lat_to=58.0189&lon_to=56.0671#Intent;scheme=yandexmaps;package=ru.yandex.yandexmaps;S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end"
+                        } else {
+                          window.location.href = "yandexmaps://build_route_on_map?lat_to=58.0189&lon_to=56.0671"
+                          setTimeout(() => {
+                            window.location.href = fallback
+                          }, 1500)
+                        }
                       }
                     }}
                     className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
