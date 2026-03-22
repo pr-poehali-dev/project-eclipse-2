@@ -12,6 +12,7 @@ const certificates = [
     icon: "Award",
     status: "Действует",
     imageUrl: null,
+    mailRequest: true,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const certificates = [
     icon: "BadgeCheck",
     status: "Действует",
     imageUrl: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/e54fef4f-73c1-4771-aeb8-2370db844a1f.png",
+    mailRequest: false,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const certificates = [
     icon: "FileText",
     status: "Действует",
     imageUrl: null,
+    mailRequest: true,
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ const certificates = [
     icon: "FlaskConical",
     status: "Действует",
     imageUrl: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/aa2f3575-6d52-4f08-a982-8d7efa90a7f0.png",
+    mailRequest: false,
   },
 ]
 
@@ -95,6 +99,17 @@ export default function CertificatesPage() {
                     <Icon name="Eye" size={16} />
                     Посмотреть документ
                   </button>
+                )}
+                {cert.mailRequest && (
+                  <a
+                    href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center gap-2 text-[#7A7FEE] hover:text-[#5a5fd4] text-sm font-medium transition-colors"
+                  >
+                    <Icon name="Mail" size={16} />
+                    Запросить документ
+                  </a>
                 )}
               </div>
             ))}
