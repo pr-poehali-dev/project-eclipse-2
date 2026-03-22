@@ -21,7 +21,7 @@ export default function Footer() {
           Профессиональные строительные услуги и инжиниринговые решения.
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-8">
-          Тел.: +7 920 640 51 20 · csiperm@yandex.ru
+          Тел.: +7 902 640 51 20 · csiperm@yandex.ru
         </p>
 
         <p className="text-sm text-gray-500 dark:text-gray-400">
