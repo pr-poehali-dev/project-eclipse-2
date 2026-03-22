@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async"
 import Header from "@/components/landing/Header"
 import Footer from "@/components/landing/Footer"
 import Icon from "@/components/ui/icon"
@@ -44,6 +45,13 @@ const services = [
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#111111]">
+      <Helmet>
+        <title>Услуги — Центр Строительного Инжиниринга в Перми</title>
+        <meta name="description" content="Строительная экспертиза, проектирование, технический надзор, инженерные изыскания, сметное дело и консультации. Полный спектр строительных услуг в Перми." />
+        <meta property="og:title" content="Услуги — Центр Строительного Инжиниринга в Перми" />
+        <meta property="og:description" content="Полный спектр услуг в области строительства и проектирования в Перми." />
+        <link rel="canonical" href="/services" />
+      </Helmet>
       <Header />
       <div className="container pt-4 pb-16">
         <section className="my-8">

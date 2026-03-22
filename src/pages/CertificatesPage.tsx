@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async"
 import Header from "@/components/landing/Header"
 import Footer from "@/components/landing/Footer"
 import Icon from "@/components/ui/icon"
@@ -29,6 +30,13 @@ const certificates = [
 export default function CertificatesPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#111111]">
+      <Helmet>
+        <title>Сертификаты и лицензии — Центр Строительного Инжиниринга, Пермь</title>
+        <meta name="description" content="Сертификаты и лицензии Центра Строительного Инжиниринга: свидетельство СРО, ISO 9001, лицензия на проектирование. Работаем в полном соответствии с законодательством." />
+        <meta property="og:title" content="Сертификаты и лицензии — Центр Строительного Инжиниринга, Пермь" />
+        <meta property="og:description" content="Официальные разрешения и сертификаты: СРО, ISO 9001, лицензия на проектирование." />
+        <link rel="canonical" href="/certificates" />
+      </Helmet>
       <Header />
       <div className="container pt-4 pb-16">
         <section className="my-8">

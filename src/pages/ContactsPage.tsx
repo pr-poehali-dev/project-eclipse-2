@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Helmet } from "react-helmet-async"
 import Header from "@/components/landing/Header"
 import Footer from "@/components/landing/Footer"
 import Icon from "@/components/ui/icon"
@@ -31,6 +32,13 @@ function CopyButton({ text }: { text: string }) {
 export default function ContactsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#111111]">
+      <Helmet>
+        <title>Контакты — Центр Строительного Инжиниринга, Пермь</title>
+        <meta name="description" content="Контакты Центра Строительного Инжиниринга в Перми. Телефон: +7 902 640 51 20, email: csiperm@yandex.ru. Адрес: г. Пермь, ул. Целинная, 49." />
+        <meta property="og:title" content="Контакты — Центр Строительного Инжиниринга, Пермь" />
+        <meta property="og:description" content="Свяжитесь с нами: +7 902 640 51 20, csiperm@yandex.ru. г. Пермь, ул. Целинная, 49." />
+        <link rel="canonical" href="/contacts" />
+      </Helmet>
       <Header />
       <div className="container pt-4 pb-16">
         <section className="my-8">
