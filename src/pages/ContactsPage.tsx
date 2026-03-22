@@ -51,10 +51,10 @@ export default function ContactsPage() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Телефон</p>
                 <div className="flex items-center gap-2">
                   <a
-                    href="tel:+79206405120"
+                    href="tel:+79026405120"
                     className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
                   >+7 902 640 51 20</a>
-                  <CopyButton text="+79206405120" />
+                  <CopyButton text="+79026405120" />
                 </div>
               </div>
             </div>
