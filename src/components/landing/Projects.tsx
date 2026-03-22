@@ -40,7 +40,7 @@ export default function Projects() {
         {products.map((product) => (
           <div
             key={product.id}
-            className="card overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
+            className="card overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
           >
             <div className="relative overflow-hidden">
               <img

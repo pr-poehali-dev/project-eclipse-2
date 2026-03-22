@@ -19,12 +19,40 @@ function CopyButton({ text }: { text: string }) {
     <button
       onClick={handle}
       title="Копировать"
-      className="ml-auto p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
     >
       {copied
         ? <Icon name="Check" size={16} className="text-green-500" />
         : <Icon name="Copy" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
       }
+    </button>
+  )
+}
+
+function openRoute() {
+  const fallback = "https://yandex.ru/maps/50/perm/?mode=routes&rtext=~%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%2C+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A6%D0%B5%D0%BB%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F%2C+49&rtt=auto"
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+  if (isMobile) {
+    const isAndroid = /Android/i.test(navigator.userAgent)
+    if (isAndroid) {
+      window.location.href = "intent://build_route_on_map?lat_to=58.05165&lon_to=56.349485#Intent;scheme=yandexmaps;package=ru.yandex.yandexmaps;S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end"
+    } else {
+      window.location.href = "yandexmaps://build_route_on_map?lat_to=58.05165&lon_to=56.349485"
+      setTimeout(() => { window.location.href = fallback }, 1500)
+    }
+  } else {
+    window.open(fallback, "_blank")
+  }
+}
+
+function RouteButton() {
+  return (
+    <button
+      onClick={(e) => { e.preventDefault(); e.stopPropagation(); openRoute() }}
+      title="Построить маршрут"
+      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+    >
+      <Icon name="Navigation" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
     </button>
   )
 }
@@ -62,7 +90,9 @@ export default function ContactsPage() {
                     href="tel:+79026405120"
                     className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
                   >+7 902 640 51 20</a>
-                  <CopyButton text="+79026405120" />
+                  <div className="ml-auto flex-shrink-0">
+                    <CopyButton text="+79026405120" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -82,43 +112,30 @@ export default function ContactsPage() {
                   >
                     csiperm@yandex.ru
                   </a>
-                  <CopyButton text="csiperm@yandex.ru" />
+                  <div className="ml-auto flex-shrink-0">
+                    <CopyButton text="csiperm@yandex.ru" />
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="card p-6 shadow-md flex flex-col items-start gap-3">
+            <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
               <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                 <Icon name="MapPin" size={22} className="text-white" />
               </div>
               <div className="w-full">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Адрес офиса</p>
                 <div className="flex items-center gap-2">
-                  <a
-                    href="https://yandex.ru/maps/50/perm/?mode=routes&rtext=~Пермь, улица Целинная, 49&rtt=auto"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => {
-                      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-                      if (isMobile) {
-                        e.preventDefault()
-                        const fallback = "https://yandex.ru/maps/50/perm/?mode=routes&rtext=~%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%2C+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A6%D0%B5%D0%BB%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F%2C+49&rtt=auto"
-                        const isAndroid = /Android/i.test(navigator.userAgent)
-                        if (isAndroid) {
-                          window.location.href = "intent://build_route_on_map?lat_to=58.05165&lon_to=56.349485#Intent;scheme=yandexmaps;package=ru.yandex.yandexmaps;S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end"
-                        } else {
-                          window.location.href = "yandexmaps://build_route_on_map?lat_to=58.05165&lon_to=56.349485"
-                          setTimeout(() => {
-                            window.location.href = fallback
-                          }, 1500)
-                        }
-                      }
-                    }}
-                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
+                  <button
+                    onClick={openRoute}
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors text-left"
                   >
                     г. Пермь, ул. Целинная, 49
-                  </a>
-                  <CopyButton text="г. Пермь, ул. Целинная, 49" />
+                  </button>
+                  <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
+                    <CopyButton text="г. Пермь, ул. Целинная, 49" />
+                    <RouteButton />
+                  </div>
                 </div>
               </div>
             </div>

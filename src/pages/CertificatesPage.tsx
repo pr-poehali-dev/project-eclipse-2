@@ -66,7 +66,7 @@ export default function CertificatesPage() {
             ))}
           </div>
 
-          <div className="card p-8 shadow-md">
+          <div className="card p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
             <div className="flex items-start gap-4">
               <div className="bg-[#7A7FEE]/10 dark:bg-[#7A7FEE]/20 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
                 <Icon name="Info" size={22} className="text-[#7A7FEE]" />

@@ -75,7 +75,7 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          <div className="mt-12 card p-8 shadow-md text-center">
+          <div className="mt-12 card p-8 shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
             <h2 className="text-2xl font-semibold text-black dark:text-white mb-3">Нужна консультация?</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-md mx-auto">
               Свяжитесь с нами — обсудим ваш проект и подберём оптимальное решение.
