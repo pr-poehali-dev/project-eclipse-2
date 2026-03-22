@@ -6,10 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ThemeProvider } from "next-themes"
 import { HelmetProvider } from "react-helmet-async"
 import Index from "./pages/Index"
+import { Navigate } from "react-router-dom"
 import ServicesPage from "./pages/ServicesPage"
 import ContactsPage from "./pages/ContactsPage"
 import CertificatesPage from "./pages/CertificatesPage"
-import NotFound from "./pages/NotFound"
+
 
 const queryClient = new QueryClient()
 
@@ -26,7 +27,7 @@ const App = () => (
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/certificates" element={<CertificatesPage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>
