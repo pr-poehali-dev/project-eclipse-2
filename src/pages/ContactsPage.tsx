@@ -86,9 +86,24 @@ export default function ContactsPage() {
               <div className="w-full">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Адрес офиса</p>
                 <div className="flex items-center gap-2">
-                  <p className="text-lg font-semibold text-black dark:text-white">
+                  <a
+                    href="https://yandex.ru/maps/?rtext=~57.99010,56.18910&rtt=auto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => {
+                      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+                      if (isMobile) {
+                        e.preventDefault()
+                        window.location.href = "yandexmaps://maps.yandex.ru/?rtext=~57.99010,56.18910&rtt=auto"
+                        setTimeout(() => {
+                          window.open("https://yandex.ru/maps/?rtext=~57.99010,56.18910&rtt=auto", "_blank")
+                        }, 2000)
+                      }
+                    }}
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors"
+                  >
                     г. Пермь, ул. Целинная, 49
-                  </p>
+                  </a>
                   <CopyButton text="г. Пермь, ул. Целинная, 49" />
                 </div>
               </div>
