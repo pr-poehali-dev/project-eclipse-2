@@ -25,6 +25,13 @@ const certificates = [
     icon: "FileText",
     status: "Действует",
   },
+  {
+    id: 4,
+    title: "Аккредитованная строительная лаборатория",
+    description: "Собственная лаборатория с аккредитацией для проведения испытаний строительных материалов и конструкций в соответствии с ГОСТ.",
+    icon: "FlaskConical",
+    status: "Действует",
+  },
 ]
 
 export default function CertificatesPage() {
@@ -48,7 +55,7 @@ export default function CertificatesPage() {
             Вся наша деятельность подтверждена официальными разрешениями и сертификатами. Работаем прозрачно и в полном соответствии с законодательством.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {certificates.map((cert) => (
               <div key={cert.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-start justify-between mb-4">
@@ -78,8 +85,8 @@ export default function CertificatesPage() {
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   Предоставим заверенные копии сертификатов и лицензий по запросу. Свяжитесь с нами удобным способом.
                 </p>
-                <a href="/contacts" className="btn-primary inline-flex items-center gap-2">
-                  <Icon name="Phone" size={16} />
+                <a href="mailto:csiperm@yandex.ru" className="btn-primary inline-flex items-center gap-2">
+                  <Icon name="Mail" size={16} />
                   Запросить документы
                 </a>
               </div>

@@ -81,10 +81,10 @@ export default function ServicesPage() {
               Свяжитесь с нами — обсудим ваш проект и подберём оптимальное решение.
             </p>
             <a
-              href="/contacts"
+              href="mailto:csiperm@yandex.ru"
               className="btn-primary inline-flex items-center gap-2"
             >
-              <Icon name="Phone" size={16} />
+              <Icon name="Mail" size={16} />
               Связаться с нами
             </a>
           </div>
