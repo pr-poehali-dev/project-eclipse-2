@@ -4,29 +4,86 @@ import Header from "@/components/landing/Header"
 import Footer from "@/components/landing/Footer"
 import Icon from "@/components/ui/icon"
 
-const equipment = [
+type EquipmentItem = {
+  id: number
+  title: string
+  type: string
+  description: string
+  images: string[]
+  mailRequest?: boolean
+}
+
+const equipment: EquipmentItem[] = [
   {
     id: 1,
     title: "SINO T80/LU8 Jupiter Laser GPS RTK",
+    type: "GNSS приёмник",
     description: "Высокоточный геодезический GNSS-приёмник с лазерным сканером. Обеспечивает сантиметровую точность измерений в режиме реального времени. Применяется при строительном контроле, исполнительных съёмках и геодезических работах на объектах.",
-    icon: "Crosshair",
-    imageUrl: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/332dec3e-a360-4b36-8369-d5a5a8ac998e.jpg",
+    images: ["https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/332dec3e-a360-4b36-8369-d5a5a8ac998e.jpg"],
+    mailRequest: true,
+  },
+  {
+    id: 2,
+    title: "Leica DISTO D510",
+    type: "Лазерный дальномер",
+    description: "Профессиональный лазерный дальномер с дальностью измерения до 200 м. Оснащён цветным дисплеем, bluetooth-модулем и функцией измерения площадей и объёмов. Незаменим при обмерных работах и строительном контроле.",
+    images: ["https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/e5b5420e-9b65-4353-9355-604a9ac5afa3.png"],
+    mailRequest: true,
+  },
+  {
+    id: 3,
+    title: "Testo 865",
+    type: "Тепловизор",
+    description: "Тепловизионная камера с разрешением матрицы 160×120 пикселей. Диапазон измерений от −20 до +280 °C. Применяется для обследования зданий, поиска тепловых мостов, дефектов утепления и нарушений герметичности.",
+    images: ["https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/3dda6d00-1424-4853-9ea5-57e9f9a1cefb.jpg"],
+    mailRequest: true,
+  },
+  {
+    id: 4,
+    title: "Topcon GPT-3105N",
+    type: "Тахеометр",
+    description: "Электронный тахеометр с угловой точностью 5'' и дальностью безотражательного измерения до 250 м. Используется при геодезических съёмках, выносе осей, исполнительной документации и строительном контроле.",
+    images: ["https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/d786b61f-c5cb-4c6f-af8f-3f119b2db2ba.jpg"],
+    mailRequest: true,
+  },
+  {
+    id: 5,
+    title: "ПУЛЬСАР-2.2",
+    type: "Дефектоскоп",
+    description: "Ультразвуковой дефектоскоп для неразрушающего контроля строительных конструкций. Определяет прочность бетона, выявляет внутренние дефекты и пустоты. Поставляется с набором преобразователей для работы в различных условиях.",
+    images: [
+      "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/110bf28f-027f-41d3-8153-a2b851fcc768.jpg",
+      "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/1bb0c828-f7d1-44ef-a265-283d70d820c8.jpg",
+    ],
     mailRequest: true,
   },
 ]
 
 export default function EquipmentPage() {
-  const [modalImage, setModalImage] = useState<string | null>(null)
+  const [modalImages, setModalImages] = useState<string[]>([])
   const [modalTitle, setModalTitle] = useState<string>("")
+  const [modalIndex, setModalIndex] = useState(0)
 
-  const openModal = (imageUrl: string, title: string) => {
-    setModalImage(imageUrl)
+  const openModal = (images: string[], title: string) => {
+    setModalImages(images)
     setModalTitle(title)
+    setModalIndex(0)
   }
 
   const closeModal = () => {
-    setModalImage(null)
+    setModalImages([])
     setModalTitle("")
+    setModalIndex(0)
+  }
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setModalIndex((i) => (i - 1 + modalImages.length) % modalImages.length)
+  }
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setModalIndex((i) => (i + 1) % modalImages.length)
   }
 
   return (
@@ -51,7 +108,6 @@ export default function EquipmentPage() {
             {equipment.map((item) => (
               <div key={item.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
-                  {/* Иконка + бейдж */}
                   <div className="flex items-center gap-3">
                     <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm shrink-0">
                       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,13 +122,12 @@ export default function EquipmentPage() {
                       </svg>
                     </div>
                     <span className="text-sm font-medium bg-[#7A7FEE]/10 text-[#7A7FEE] border border-[#7A7FEE]/30 rounded-full px-3 py-1 whitespace-nowrap">
-                      GNSS приёмник
+                      {item.type}
                     </span>
                   </div>
-                  {/* Кнопка просмотра фото */}
-                  {item.imageUrl && (
+                  {item.images.length > 0 && (
                     <button
-                      onClick={() => openModal(item.imageUrl, item.title)}
+                      onClick={() => openModal(item.images, item.title)}
                       className="text-[#7A7FEE] hover:text-[#5a5fd4] transition-colors p-1 shrink-0"
                       title="Посмотреть фото"
                     >
@@ -100,7 +155,7 @@ export default function EquipmentPage() {
       </div>
       <Footer />
 
-      {modalImage && (
+      {modalImages.length > 0 && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
           onClick={closeModal}
@@ -118,12 +173,37 @@ export default function EquipmentPage() {
                 <Icon name="X" size={22} />
               </button>
             </div>
-            <div className="overflow-auto p-4 flex items-center justify-center">
+            <div className="overflow-auto p-4 flex items-center justify-center relative">
               <img
-                src={modalImage}
+                src={modalImages[modalIndex]}
                 alt={modalTitle}
                 className="max-w-full max-h-[75vh] object-contain rounded-lg"
               />
+              {modalImages.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 transition-colors"
+                  >
+                    <Icon name="ChevronLeft" size={20} />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 transition-colors"
+                  >
+                    <Icon name="ChevronRight" size={20} />
+                  </button>
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                    {modalImages.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={(e) => { e.stopPropagation(); setModalIndex(i) }}
+                        className={`w-2 h-2 rounded-full transition-colors ${i === modalIndex ? "bg-[#7A7FEE]" : "bg-white/50"}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
