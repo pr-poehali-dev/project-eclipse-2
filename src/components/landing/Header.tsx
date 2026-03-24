@@ -21,6 +21,7 @@ export default function Header() {
     { to: "/services", label: "Услуги" },
     { to: "/contacts", label: "Контакты" },
     { to: "/certificates", label: "Сертификаты" },
+    { to: "/equipment", label: "Оборудование" },
   ]
 
   return (
