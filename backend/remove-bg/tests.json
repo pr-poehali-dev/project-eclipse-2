@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "name": "Remove white background",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "image_url": "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/f4f4a4b0-7c64-4bad-ad6f-980ecaeac334.png",
+        "output_key": "favicon-nobg.png"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"url": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
