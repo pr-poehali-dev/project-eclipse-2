@@ -69,6 +69,10 @@ export default function EquipmentPage() {
                       <line x1="13" y1="18" x2="19" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
                     </svg>
                   </div>
+                  {/* Бейдж GNSS приемник */}
+                  <span className="text-xs font-medium bg-[#7A7FEE]/10 text-[#7A7FEE] border border-[#7A7FEE]/30 rounded-full px-3 py-1 whitespace-nowrap">
+                    GNSS приёмник
+                  </span>
                   {/* Глазик без текста */}
                   {item.imageUrl && (
                     <button
