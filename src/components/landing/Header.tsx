@@ -33,7 +33,12 @@ export default function Header() {
       >
         <div className="container py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center gap-2">
+              <img
+                src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
+                alt="Логотип ЦСИ"
+                className="h-9 w-9 object-contain"
+              />
               <span className="text-lg md:text-xl font-bold text-black dark:text-white leading-tight">
                 Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
               </span>
