@@ -1,0 +1,20 @@
+{
+  "name": "Центр Строительного Инжиниринга",
+  "short_name": "ЦСИ Пермь",
+  "description": "Строительный контроль и технический надзор в Перми",
+  "start_url": "/",
+  "display": "browser",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
