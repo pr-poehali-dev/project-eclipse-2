@@ -51,21 +51,37 @@ export default function EquipmentPage() {
             {equipment.map((item) => (
               <div key={item.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
-                    <Icon name={item.icon} fallback="Wrench" size={22} className="text-white" />
+                  {/* Кастомная иконка прибора GNSS */}
+                  <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm shrink-0">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Антенна */}
+                      <line x1="13" y1="2" x2="13" y2="7" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+                      <circle cx="13" cy="1.5" r="1.5" fill="white"/>
+                      {/* Корпус верхняя часть (купол) */}
+                      <path d="M8 11 Q8 7 13 7 Q18 7 18 11" fill="white" opacity="0.9"/>
+                      {/* Корпус основной */}
+                      <rect x="8" y="11" width="10" height="7" rx="1.5" fill="white"/>
+                      {/* Экран/индикатор */}
+                      <rect x="10" y="12.5" width="6" height="3.5" rx="0.8" fill="#7A7FEE"/>
+                      {/* Ножки штатива */}
+                      <line x1="13" y1="18" x2="7" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+                      <line x1="13" y1="18" x2="13" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+                      <line x1="13" y1="18" x2="19" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+                    </svg>
                   </div>
+                  {/* Глазик без текста */}
+                  {item.imageUrl && (
+                    <button
+                      onClick={() => openModal(item.imageUrl, item.title)}
+                      className="text-[#7A7FEE] hover:text-[#5a5fd4] transition-colors p-1"
+                      title="Посмотреть фото"
+                    >
+                      <Icon name="Eye" size={20} />
+                    </button>
+                  )}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">{item.title}</h3>
                 <p className="text-gray-700 dark:text-gray-300 text-sm flex-1">{item.description}</p>
-                {item.imageUrl && (
-                  <button
-                    onClick={() => openModal(item.imageUrl, item.title)}
-                    className="mt-4 flex items-center gap-2 text-[#7A7FEE] hover:text-[#5a5fd4] text-sm font-medium transition-colors"
-                  >
-                    <Icon name="Eye" size={16} />
-                    Посмотреть фото
-                  </button>
-                )}
                 {item.mailRequest && (
                   <a
                     href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
