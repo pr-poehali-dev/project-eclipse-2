@@ -238,7 +238,7 @@ export default function EquipmentPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {equipment.map((item) => (
               <div key={item.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                <div className="flex items-center mb-4 gap-3">
+                <div className="flex items-center mb-4 gap-3" style={{gap: "8px"}}>
                   {/* Иконка прибора */}
                   <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm shrink-0">
                     <DeviceIcon type={item.iconType} />
@@ -251,7 +251,7 @@ export default function EquipmentPage() {
                   {item.images.length > 0 && (
                     <button
                       onClick={() => openModal(item.images, item.title)}
-                      className="text-[#7A7FEE] hover:text-[#5a5fd4] transition-colors p-1 shrink-0 ml-1"
+                      className="text-[#7A7FEE] hover:text-[#5a5fd4] transition-colors p-1 shrink-0"
                       title="Посмотреть фото"
                     >
                       <Icon name="Eye" size={20} />
