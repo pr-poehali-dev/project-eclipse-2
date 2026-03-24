@@ -82,6 +82,11 @@ export default function Header() {
         <div className="fixed inset-0 z-[100] bg-black/50 md:hidden">
           <div className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white dark:bg-[#111111] shadow-xl overflow-y-auto">
             <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111111]">
+              <img
+                src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
+                alt="Логотип ЦСИ"
+                className="h-8 w-8 object-contain"
+              />
               <span className="text-base font-bold text-black dark:text-white leading-tight">
                 Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
               </span>
