@@ -50,34 +50,30 @@ export default function EquipmentPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {equipment.map((item) => (
               <div key={item.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                <div className="flex items-start justify-between mb-4">
-                  {/* Кастомная иконка прибора GNSS */}
-                  <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm shrink-0">
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {/* Антенна */}
-                      <line x1="13" y1="2" x2="13" y2="7" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-                      <circle cx="13" cy="1.5" r="1.5" fill="white"/>
-                      {/* Корпус верхняя часть (купол) */}
-                      <path d="M8 11 Q8 7 13 7 Q18 7 18 11" fill="white" opacity="0.9"/>
-                      {/* Корпус основной */}
-                      <rect x="8" y="11" width="10" height="7" rx="1.5" fill="white"/>
-                      {/* Экран/индикатор */}
-                      <rect x="10" y="12.5" width="6" height="3.5" rx="0.8" fill="#7A7FEE"/>
-                      {/* Ножки штатива */}
-                      <line x1="13" y1="18" x2="7" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
-                      <line x1="13" y1="18" x2="13" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
-                      <line x1="13" y1="18" x2="19" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
-                    </svg>
+                <div className="flex items-center justify-between mb-4">
+                  {/* Иконка + бейдж */}
+                  <div className="flex items-center gap-3">
+                    <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm shrink-0">
+                      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="13" y1="2" x2="13" y2="7" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+                        <circle cx="13" cy="1.5" r="1.5" fill="white"/>
+                        <path d="M8 11 Q8 7 13 7 Q18 7 18 11" fill="white" opacity="0.9"/>
+                        <rect x="8" y="11" width="10" height="7" rx="1.5" fill="white"/>
+                        <rect x="10" y="12.5" width="6" height="3.5" rx="0.8" fill="#7A7FEE"/>
+                        <line x1="13" y1="18" x2="7" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+                        <line x1="13" y1="18" x2="13" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+                        <line x1="13" y1="18" x2="19" y2="24" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+                      </svg>
+                    </div>
+                    <span className="text-xs font-medium bg-[#7A7FEE]/10 text-[#7A7FEE] border border-[#7A7FEE]/30 rounded-full px-3 py-1 whitespace-nowrap">
+                      GNSS приёмник
+                    </span>
                   </div>
-                  {/* Бейдж GNSS приемник */}
-                  <span className="text-xs font-medium bg-[#7A7FEE]/10 text-[#7A7FEE] border border-[#7A7FEE]/30 rounded-full px-3 py-1 whitespace-nowrap">
-                    GNSS приёмник
-                  </span>
-                  {/* Глазик без текста */}
+                  {/* Кнопка просмотра фото */}
                   {item.imageUrl && (
                     <button
                       onClick={() => openModal(item.imageUrl, item.title)}
-                      className="text-[#7A7FEE] hover:text-[#5a5fd4] transition-colors p-1"
+                      className="text-[#7A7FEE] hover:text-[#5a5fd4] transition-colors p-1 shrink-0"
                       title="Посмотреть фото"
                     >
                       <Icon name="Eye" size={20} />
