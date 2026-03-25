@@ -9,25 +9,23 @@ export default function CallToAction() {
             Свяжитесь с нами — <span className="text-[#7A7FEE] dark:text-[#7A7FEE]">ответим</span> быстро
           </h2>
           <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Нужен конкретный прибор, сертификат или консультация по оборудованию?
+            Нужен строительный контроль или технический надзор на вашем объекте?
           </p>
           <p className="mb-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
-            Оставьте заявку — менеджер свяжется с вами в рабочее время и поможет подобрать нужное решение.
+            Оставьте заявку — специалист свяжется с вами в рабочее время, уточнит детали и предложит оптимальное решение.
           </p>
           <div className="flex flex-wrap gap-4">
             <ContactFormButton />
-            <a href="tel:+78001234567" className="btn-secondary text-black dark:text-white">
-              +7 (800) 123-45-67
+            <a href="tel:+79026405120" className="btn-secondary text-black dark:text-white">
+              +7 (902) 640-51-20
             </a>
           </div>
         </div>
 
-        <div className="hidden md:block md:w-2/5 md:absolute md:right-0 md:top-0 md:bottom-0 md:flex md:items-center">
-          <img
-            src="/purple-circle-wave-static.png"
-            alt="Purple Wave"
-            className="w-full h-auto md:h-full md:w-auto md:object-cover md:object-left"
-          />
+        <div className="hidden md:flex md:w-2/5 md:absolute md:right-0 md:top-0 md:bottom-0 items-center justify-center p-8">
+          <div className="text-[#7A7FEE]/10 dark:text-[#7A7FEE]/5 text-[200px] font-black leading-none select-none">
+            ЦСИ
+          </div>
         </div>
       </div>
     </section>

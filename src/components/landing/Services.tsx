@@ -3,23 +3,23 @@ import Icon from "@/components/ui/icon"
 const services = [
   {
     id: 1,
-    title: "Каталог приборов",
-    description: "Широкий ассортимент измерительных, контрольных и лабораторных приборов для различных отраслей промышленности.",
-    icon: "Gauge",
+    title: "Строительный контроль",
+    description: "Проверяем соответствие работ проектной документации, СП, ГОСТ и нормативам на каждом этапе строительства.",
+    icon: "ClipboardCheck",
     color: "bg-[#7A7FEE]",
   },
   {
     id: 2,
-    title: "Сертификаты качества",
-    description: "Все приборы сопровождаются официальными сертификатами соответствия и техническими паспортами.",
-    icon: "BadgeCheck",
+    title: "Технический надзор",
+    description: "Защищаем интересы заказчика: выявляем нарушения, контролируем сроки и качество материалов.",
+    icon: "ShieldCheck",
     color: "bg-[#7A7FEE]",
   },
   {
     id: 3,
-    title: "Техническая поддержка",
-    description: "Консультации по выбору оборудования, помощь с документацией и поддержка на всех этапах сотрудничества.",
-    icon: "HeadphonesIcon",
+    title: "Экспертиза и проектирование",
+    description: "Строительная экспертиза, инженерные изыскания, проектирование и сметное дело.",
+    icon: "FileSearch",
     color: "bg-[#7A7FEE]",
   },
 ]
@@ -28,11 +28,11 @@ export default function Services() {
   return (
     <section id="services" className="my-20">
       <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-        Всё для вашего
-        <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">производства</span>
+        Что мы
+        <span className="block text-[#7A7FEE] dark:text-[#7A7FEE]">делаем</span>
       </h2>
       <p className="mb-12 max-w-2xl text-gray-700 dark:text-gray-300">
-        Мы поставляем сертифицированные приборы и обеспечиваем полное сопровождение — от выбора оборудования до технической документации.
+        Полный цикл строительного контроля и надзора — от проверки проектной документации до приёмки готового объекта.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
