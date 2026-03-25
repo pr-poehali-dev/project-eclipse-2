@@ -149,8 +149,8 @@ export default function ContactsPage() {
                     г. Пермь, ул. Целинная, 49
                   </button>
                   <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
-                    <CopyButton text="г. Пермь, ул. Целинная, 49" />
                     <RouteButton />
+                    <CopyButton text="г. Пермь, ул. Целинная, 49" />
                   </div>
                 </div>
               </div>
