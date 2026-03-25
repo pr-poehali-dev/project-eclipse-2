@@ -146,7 +146,7 @@ const equipment: EquipmentItem[] = [
     type: "GNSS приёмник",
     iconType: "gnss",
     description: "Высокоточный геодезический GNSS-приёмник с лазерным сканером. Обеспечивает сантиметровую точность измерений в режиме реального времени. Применяется при строительном контроле, исполнительных съёмках и геодезических работах на объектах.",
-    images: ["https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/332dec3e-a360-4b36-8369-d5a5a8ac998e.jpg"],
+    images: ["https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/e97bf6c0-2278-451f-8b18-c98c0f0ed0b6.png"],
     mailRequest: true,
   },
   {

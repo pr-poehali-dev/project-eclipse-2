@@ -112,7 +112,16 @@ export default function ContactsPage() {
                   >
                     csiperm@yandex.ru
                   </a>
-                  <div className="ml-auto flex-shrink-0">
+                  <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
+                    <a
+                      href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Написать письмо"
+                      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+                    >
+                      <Icon name="Mail" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
+                    </a>
                     <CopyButton text="csiperm@yandex.ru" />
                   </div>
                 </div>
