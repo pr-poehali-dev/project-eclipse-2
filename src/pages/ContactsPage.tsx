@@ -90,7 +90,14 @@ export default function ContactsPage() {
                     href="tel:+79026405120"
                     className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                   >+7 902 640 51 20</a>
-                  <div className="ml-auto flex-shrink-0">
+                  <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
+                    <a
+                      href="tel:+79026405120"
+                      title="Позвонить"
+                      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+                    >
+                      <Icon name="Phone" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
+                    </a>
                     <CopyButton text="+79026405120" />
                   </div>
                 </div>
