@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const RIBBON_W = 48
 
@@ -35,7 +35,15 @@ const STRIPE_PATTERN = [
 const STRIPE_TOTAL = STRIPE_PATTERN.reduce((s, p) => s + p.h, 0) // 72px — один повтор
 
 export default function VictoryDayDecoration() {
-  const [bannerVisible, setBannerVisible] = useState(true)
+  const [bannerVisible, setBannerVisible] = useState(() => {
+    return localStorage.getItem("victory-banner-closed") !== "1"
+  })
+
+  useEffect(() => {
+    if (!bannerVisible) {
+      localStorage.setItem("victory-banner-closed", "1")
+    }
+  }, [bannerVisible])
 
   return (
     <>
@@ -164,7 +172,7 @@ export default function VictoryDayDecoration() {
               textAlign: "center",
             }}
           >
-            С Днём Победы! 9 мая — День Великой Победы 🎖️
+            С Днём Победы! 9 мая — День Великой Победы
           </span>
           <span style={{ color: "#F4A500", fontSize: 22, lineHeight: 1 }}>★</span>
           <button
