@@ -1,8 +1,5 @@
 import { useState } from "react"
 
-const BANNER_URL =
-  "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/452c2306-4a07-472a-ab3d-fa90a8945bc4.png"
-
 const RIBBON_W = 48
 
 // Звёзды — фиксированные позиции, не рандом
@@ -137,67 +134,55 @@ export default function VictoryDayDecoration() {
         </div>
       ))}
 
-      {/* ── Верхняя полоска-декор (всегда видна) ── */}
-      <div
-        style={{
-          width: "100%",
-          height: 6,
-          background: "repeating-linear-gradient(90deg, #E8820C 0px, #E8820C 22px, #1a1a1a 22px, #1a1a1a 36px, #E8820C 36px, #E8820C 58px, #1a1a1a 58px, #1a1a1a 72px)",
-          flexShrink: 0,
-          zIndex: 9998,
-          position: "relative",
-        }}
-      />
-
-      {/* ── Баннер с картинкой ── */}
+      {/* ── Красный баннер с текстом ── */}
       {bannerVisible && (
         <div
           style={{
             position: "relative",
             width: "100%",
-            lineHeight: 0,
             flexShrink: 0,
-            zIndex: 9997,
-            animation: "victoryIn 0.5s ease-out both",
+            zIndex: 9998,
+            background: "linear-gradient(90deg, #8B0000 0%, #CC0000 40%, #8B0000 100%)",
+            borderBottom: "3px solid #F4A500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 14,
+            padding: "8px 48px",
+            boxShadow: "0 2px 12px rgba(0,0,0,0.5)",
+            animation: "victoryIn 0.7s ease-out both",
           }}
         >
-          <img
-            src={BANNER_URL}
-            alt="С Днём Победы! 9 мая 1941–1945"
+          <span style={{ color: "#F4A500", fontSize: 22, lineHeight: 1 }}>★</span>
+          <span
             style={{
-              width: "100%",
-              display: "block",
-              maxHeight: 96,
-              objectFit: "cover",
-              objectPosition: "center 30%",
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "clamp(13px, 2.2vw, 18px)",
+              letterSpacing: "0.08em",
+              textShadow: "0 1px 4px rgba(0,0,0,0.6)",
+              textAlign: "center",
             }}
-          />
-          {/* нижняя полоска под баннером */}
-          <div
-            style={{
-              width: "100%",
-              height: 5,
-              background: "repeating-linear-gradient(90deg, #E8820C 0px, #E8820C 22px, #1a1a1a 22px, #1a1a1a 36px, #E8820C 36px, #E8820C 58px, #1a1a1a 58px, #1a1a1a 72px)",
-            }}
-          />
+          >
+            С Днём Победы! 9 мая — День Великой Победы 🎖️
+          </span>
+          <span style={{ color: "#F4A500", fontSize: 22, lineHeight: 1 }}>★</span>
           <button
             onClick={() => setBannerVisible(false)}
             aria-label="Закрыть баннер"
             style={{
               position: "absolute",
-              top: 6,
               right: RIBBON_W + 8,
-              background: "rgba(0,0,0,0.6)",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "transparent",
               border: "none",
-              color: "#fff",
+              color: "#ffcccc",
               cursor: "pointer",
-              fontSize: 13,
-              borderRadius: "50%",
-              width: 24,
-              height: 24,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              fontSize: 18,
+              lineHeight: 1,
+              padding: "2px 6px",
+              opacity: 0.7,
             }}
           >
             ✕
