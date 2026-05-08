@@ -35,13 +35,15 @@ const STRIPE_PATTERN = [
 const STRIPE_TOTAL = STRIPE_PATTERN.reduce((s, p) => s + p.h, 0) // 72px — один повтор
 
 export default function VictoryDayDecoration() {
+  const STORAGE_KEY = "victory-banner-closed-v2"
+
   const [bannerVisible, setBannerVisible] = useState(() => {
-    return localStorage.getItem("victory-banner-closed") !== "1"
+    return localStorage.getItem(STORAGE_KEY) !== "1"
   })
 
   useEffect(() => {
     if (!bannerVisible) {
-      localStorage.setItem("victory-banner-closed", "1")
+      localStorage.setItem(STORAGE_KEY, "1")
     }
   }, [bannerVisible])
 
