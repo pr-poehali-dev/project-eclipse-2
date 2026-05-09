@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const RIBBON_W = 48
+const RIBBON_W = typeof window !== 'undefined' && window.innerWidth < 768 ? 20 : 48
 
 // Звёзды — фиксированные позиции, не рандом
 const STARS = [
