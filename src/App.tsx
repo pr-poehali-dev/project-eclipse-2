@@ -11,7 +11,6 @@ import ServicesPage from "./pages/ServicesPage"
 import ContactsPage from "./pages/ContactsPage"
 import CertificatesPage from "./pages/CertificatesPage"
 import EquipmentPage from "./pages/EquipmentPage"
-import VictoryDayDecoration from "./components/VictoryDayDecoration"
 
 const queryClient = new QueryClient()
 
@@ -20,7 +19,6 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
         <TooltipProvider>
-          <VictoryDayDecoration />
           <Toaster />
           <Sonner />
           <BrowserRouter>
