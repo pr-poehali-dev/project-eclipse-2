@@ -8,7 +8,8 @@ const certificates = [
   {
     id: 1,
     title: "Допуск СРО на строительство",
-    description: "Допуск к работам, которые оказывают влияние на безопасность объектов капитального строительства.",
+    description:
+      "Допуск к работам, которые оказывают влияние на безопасность объектов капитального строительства.",
     icon: "Award",
     status: "Действует",
     imageUrl: null,
@@ -17,16 +18,19 @@ const certificates = [
   {
     id: 2,
     title: "ISO 9001",
-    description: "Сертификат системы менеджмента качества. Подтверждает соответствие процессов международным стандартам.",
+    description:
+      "Сертификат системы менеджмента качества. Подтверждает соответствие процессов международным стандартам.",
     icon: "BadgeCheck",
     status: "Действует",
-    imageUrl: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/e54fef4f-73c1-4771-aeb8-2370db844a1f.png",
+    imageUrl:
+      "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/e54fef4f-73c1-4771-aeb8-2370db844a1f.png",
     mailRequest: false,
   },
   {
     id: 3,
     title: "Допуск СРО на проектирование",
-    description: "Лицензия на осуществление деятельности по подготовке проектной документации.",
+    description:
+      "Лицензия на осуществление деятельности по подготовке проектной документации.",
     icon: "FileText",
     status: "Действует",
     imageUrl: null,
@@ -35,10 +39,12 @@ const certificates = [
   {
     id: 4,
     title: "Аккредитованная строительная лаборатория",
-    description: "Собственная лаборатория с аккредитацией для проведения испытаний строительных материалов и конструкций в соответствии с ГОСТ.",
+    description:
+      "Собственная лаборатория с аккредитацией для проведения испытаний строительных материалов и конструкций в соответствии с ГОСТ.",
     icon: "FlaskConical",
     status: "Действует",
-    imageUrl: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/aa2f3575-6d52-4f08-a982-8d7efa90a7f0.png",
+    imageUrl:
+      "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/aa2f3575-6d52-4f08-a982-8d7efa90a7f0.png",
     mailRequest: false,
   },
 ]
@@ -58,114 +64,210 @@ export default function CertificatesPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white dark:bg-[#111111]">
+    <main className="min-h-screen bg-[#f4f6fa]">
       <Helmet>
         <title>Сертификаты и лицензии — Центр Строительного Инжиниринга, Пермь</title>
-        <meta name="description" content="Сертификаты и лицензии Центра Строительного Инжиниринга: свидетельство СРО, ISO 9001, лицензия на проектирование. Работаем в полном соответствии с законодательством." />
-        <meta property="og:title" content="Сертификаты и лицензии — Центр Строительного Инжиниринга, Пермь" />
-        <meta property="og:description" content="Официальные разрешения и сертификаты: СРО, ISO 9001, лицензия на проектирование." />
+        <meta
+          name="description"
+          content="Сертификаты и лицензии Центра Строительного Инжиниринга: свидетельство СРО, ISO 9001, лицензия на проектирование. Работаем в полном соответствии с законодательством."
+        />
+        <meta
+          property="og:title"
+          content="Сертификаты и лицензии — Центр Строительного Инжиниринга, Пермь"
+        />
+        <meta
+          property="og:description"
+          content="Официальные разрешения и сертификаты: СРО, ISO 9001, лицензия на проектирование."
+        />
         <link rel="canonical" href="/certificates" />
       </Helmet>
-      <Header />
-      <div className="container pt-4 pb-16">
-        <section className="my-8">
-          <h1 className="text-black dark:text-white mb-4 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-            Сертификаты
-            <span className="block text-[#7A7FEE]">и документы</span>
-          </h1>
-          <p className="mb-12 max-w-2xl text-gray-700 dark:text-gray-300">
-            Вся наша деятельность подтверждена официальными разрешениями и сертификатами. Работаем прозрачно и в полном соответствии с законодательством.
-          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <Header />
+
+      {/* Hero */}
+      <section
+        className="relative"
+        style={{
+          background: "linear-gradient(135deg, #0a1628 0%, #112040 100%)",
+        }}
+      >
+        <div
+          className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.15) 39px,rgba(255,255,255,0.15) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,0.15) 39px,rgba(255,255,255,0.15) 40px)",
+          }}
+        />
+        <div className="container relative py-16 md:py-24">
+          <div className="flex items-center gap-2 mb-5">
+            <span className="block w-1 h-4 bg-[#1e4d9b]" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#1e4d9b]">
+              Центр Строительного Инжиниринга
+            </span>
+          </div>
+          <h1 className="text-white font-bold leading-tight mb-4">
+            Сертификаты и документы
+          </h1>
+          <p className="text-[#8a9bbf] max-w-2xl text-lg leading-relaxed">
+            Вся наша деятельность подтверждена официальными разрешениями и
+            сертификатами. Работаем прозрачно и в полном соответствии с
+            законодательством.
+          </p>
+        </div>
+      </section>
+
+      {/* Certificates grid */}
+      <section className="py-14 md:py-20">
+        <div className="container">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="block w-1 h-4 bg-[#1e4d9b]" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#1e4d9b]">
+              Наши разрешения
+            </span>
+          </div>
+          <h2 className="font-bold text-[#1a2236] mb-10">
+            Лицензии и сертификаты
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
             {certificates.map((cert) => (
-              <div key={cert.id} className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
-                    <Icon name={cert.icon} fallback="Award" size={22} className="text-white" />
+              <div
+                key={cert.id}
+                className="border border-[#dde3ef] bg-white p-6 flex flex-col transition-colors duration-200 hover:bg-[#eef1f8]"
+              >
+                {/* Header row: icon + status badge */}
+                <div className="flex items-start justify-between mb-5">
+                  <div className="w-12 h-12 bg-[#1e4d9b] flex items-center justify-center flex-shrink-0">
+                    <Icon
+                      name={cert.icon}
+                      fallback="Award"
+                      size={22}
+                      className="text-white"
+                    />
                   </div>
-                  <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 flex items-center gap-1">
-                    <Icon name="CheckCircle" size={12} />
+                  <span className="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 flex items-center gap-1">
+                    <Icon name="CheckCircle" size={11} />
                     {cert.status}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">{cert.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300 text-sm flex-1">{cert.description}</p>
-                {cert.imageUrl && (
-                  <button
-                    onClick={() => openModal(cert.imageUrl!, cert.title)}
-                    className="mt-4 flex items-center gap-2 text-[#7A7FEE] hover:text-[#5a5fd4] text-sm font-medium transition-colors"
-                  >
-                    <Icon name="Eye" size={16} />
-                    Посмотреть документ
-                  </button>
-                )}
-                {cert.mailRequest && (
-                  <a
-                    href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 flex items-center gap-2 text-[#7A7FEE] hover:text-[#5a5fd4] text-sm font-medium transition-colors"
-                  >
-                    <Icon name="Mail" size={16} />
-                    Запросить документ
-                  </a>
-                )}
+
+                <h3 className="text-base font-bold text-[#1a2236] mb-2 leading-snug">
+                  {cert.title}
+                </h3>
+                <p className="text-[#6b7a99] text-sm leading-relaxed flex-1">
+                  {cert.description}
+                </p>
+
+                {/* Actions */}
+                <div className="mt-5 flex flex-col gap-2">
+                  {cert.imageUrl && (
+                    <button
+                      onClick={() => openModal(cert.imageUrl!, cert.title)}
+                      className="flex items-center gap-2 text-[#1e4d9b] hover:text-[#163d7a] text-sm font-semibold transition-colors"
+                    >
+                      <Icon name="Eye" size={15} />
+                      Посмотреть документ
+                    </button>
+                  )}
+                  {cert.mailRequest && (
+                    <a
+                      href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[#1e4d9b] hover:text-[#163d7a] text-sm font-semibold transition-colors"
+                    >
+                      <Icon name="Mail" size={15} />
+                      Запросить документ
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="card p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="flex items-start gap-4">
-              <div className="bg-[#7A7FEE]/10 dark:bg-[#7A7FEE]/20 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
-                <Icon name="Info" size={22} className="text-[#7A7FEE]" />
+      {/* CTA */}
+      <section
+        style={{
+          background: "linear-gradient(135deg, #0a1628 0%, #112040 100%)",
+        }}
+        className="py-14 md:py-20"
+      >
+        <div className="container">
+          <div className="flex flex-col md:flex-row md:items-center gap-8">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="block w-1 h-4 bg-[#1e4d9b]" />
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#1e4d9b]">
+                  Документация
+                </span>
               </div>
-              <div>
-                <h2 className="text-xl font-semibold text-black dark:text-white mb-2">
-                  Нужны оригиналы документов?
-                </h2>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  Предоставим заверенные копии сертификатов и лицензий по запросу. Свяжитесь с нами удобным способом.
-                </p>
-                <a
-                  href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  <Icon name="Mail" size={16} />
-                  Запросить документы
-                </a>
-              </div>
+              <h2 className="font-bold text-white mb-3">
+                Нужны оригиналы документов?
+              </h2>
+              <p className="text-[#8a9bbf] text-lg leading-relaxed max-w-xl">
+                Предоставим заверенные копии сертификатов и лицензий по запросу.
+                Свяжитесь с нами удобным способом.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 md:flex-shrink-0">
+              <a
+                href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                <Icon name="Mail" size={16} />
+                Запросить документы
+              </a>
+              <a
+                href="tel:+79026405120"
+                className="btn-secondary inline-flex items-center gap-2"
+              >
+                <Icon name="Phone" size={16} />
+                +7 902 640 51 20
+              </a>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
       <Footer />
 
+      {/* Modal */}
       {modalImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4"
           onClick={closeModal}
         >
           <div
-            className="relative bg-white dark:bg-[#1a1a1a] rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col"
+            className="relative bg-white shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-              <h3 className="text-base font-semibold text-black dark:text-white pr-4">{modalTitle}</h3>
+            {/* Modal header */}
+            <div className="flex items-center justify-between px-5 py-4 border-b border-[#dde3ef]">
+              <div className="flex items-center gap-3">
+                <div className="w-7 h-7 bg-[#1e4d9b] flex items-center justify-center flex-shrink-0">
+                  <Icon name="FileText" size={14} className="text-white" />
+                </div>
+                <h3 className="text-sm font-bold text-[#1a2236] pr-4">
+                  {modalTitle}
+                </h3>
+              </div>
               <button
                 onClick={closeModal}
-                className="text-gray-500 hover:text-gray-800 dark:hover:text-white transition-colors shrink-0"
+                className="text-[#6b7a99] hover:text-[#1a2236] transition-colors shrink-0 p-1"
               >
-                <Icon name="X" size={22} />
+                <Icon name="X" size={20} />
               </button>
             </div>
-            <div className="overflow-auto p-4 flex items-center justify-center">
+            {/* Modal body */}
+            <div className="overflow-auto p-5 flex items-center justify-center bg-[#f4f6fa]">
               <img
                 src={modalImage}
                 alt={modalTitle}
-                className="max-w-full max-h-[75vh] object-contain rounded-lg"
+                className="max-w-full max-h-[74vh] object-contain"
               />
             </div>
           </div>

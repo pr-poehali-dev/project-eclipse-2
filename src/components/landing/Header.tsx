@@ -1,123 +1,145 @@
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
-import ThemeToggle from "./ThemeToggle"
 import { Link, useLocation } from "react-router-dom"
+import Icon from "@/components/ui/icon"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    handleScroll()
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   const navLinks = [
+    { to: "/", label: "Главная" },
     { to: "/services", label: "Услуги" },
-    { to: "/contacts", label: "Контакты" },
-    { to: "/certificates", label: "Сертификаты" },
     { to: "/equipment", label: "Оборудование" },
+    { to: "/certificates", label: "Сертификаты" },
+    { to: "/contacts", label: "Контакты" },
   ]
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => { document.body.style.overflow = "" }
+  }, [mobileMenuOpen])
 
   return (
     <>
-      <header
-        className={`sticky top-0 z-40 w-full transition-all duration-200 ${
-          isScrolled ? "bg-white/90 dark:bg-[#111111]/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
-        }`}
-      >
-        <div className="container py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2">
+      {/* Верхняя полоса с контактами */}
+      <div className="bg-[#060f1e] border-b border-[#1e3460]">
+        <div className="container">
+          <div className="flex items-center justify-between py-2 text-xs text-[#8a9bbf]">
+            <div className="flex items-center gap-6">
+              <a href="tel:+79026405120" className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <Icon name="Phone" size={12} />
+                +7 902 640 51 20
+              </a>
+              <a href="mailto:csiperm@yandex.ru" className="flex items-center gap-1.5 hover:text-white transition-colors hidden sm:flex">
+                <Icon name="Mail" size={12} />
+                csiperm@yandex.ru
+              </a>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Icon name="MapPin" size={12} />
+              <span>г. Пермь</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Основной хедер */}
+      <header className="sticky top-0 z-40 w-full bg-[#0a1628] shadow-lg border-b border-[#1e3460]">
+        <div className="container">
+          <div className="flex items-center justify-between py-4">
+            {/* Логотип */}
+            <Link to="/" className="flex items-center gap-3">
               <img
                 src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
                 alt="Логотип ЦСИ"
-                className="h-9 w-9 object-contain"
+                className="h-10 w-10 object-contain"
               />
-              <span className="text-lg md:text-xl font-bold text-black dark:text-white leading-tight">
-                Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
-              </span>
+              <div className="leading-tight">
+                <div className="text-white font-bold text-base md:text-lg uppercase tracking-wide font-['Roboto_Condensed',sans-serif]">
+                  Центр Строительного
+                </div>
+                <div className="text-[#2d6fdb] font-bold text-base md:text-lg uppercase tracking-wide font-['Roboto_Condensed',sans-serif]">
+                  Инжиниринга
+                </div>
+              </div>
             </Link>
 
-            <div className="flex items-center space-x-2 md:space-x-4">
-              <nav className="hidden md:block">
-                <ul className="flex space-x-2">
-                  {navLinks.map((link) => (
-                    <li key={link.to}>
-                      <Link
-                        to={link.to}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                          location.pathname === link.to
-                            ? "bg-[#7A7FEE] text-white"
-                            : "text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+            {/* Десктоп навигация */}
+            <nav className="hidden lg:block">
+              <ul className="flex items-center gap-1">
+                {navLinks.map((link) => (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className={`px-4 py-2 text-sm font-medium uppercase tracking-wide transition-colors ${
+                        location.pathname === link.to
+                          ? "text-white bg-[#1e4d9b]"
+                          : "text-[#c2cce8] hover:text-white hover:bg-[#112040]"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-              <ThemeToggle />
-
+            {/* Кнопка связи + бургер */}
+            <div className="flex items-center gap-3">
+              <a
+                href="/contacts"
+                className="hidden md:inline-block btn-primary text-xs py-2 px-4"
+              >
+                Связаться
+              </a>
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="p-2 rounded-md bg-transparent hover:bg-gray-200/50 dark:hover:bg-gray-800/20 md:hidden"
+                className="lg:hidden p-2 text-white"
                 aria-label="Меню"
               >
-                <Menu className="h-6 w-6 text-black dark:text-white" />
+                <Icon name="Menu" size={24} />
               </button>
             </div>
           </div>
         </div>
       </header>
 
+      {/* Мобильное меню */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] bg-black/50 md:hidden">
-          <div className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white dark:bg-[#111111] shadow-xl overflow-y-auto">
-            <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111111]">
-              <img
-                src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
-                alt="Логотип ЦСИ"
-                className="h-8 w-8 object-contain"
-              />
-              <span className="text-base font-bold text-black dark:text-white leading-tight">
-                Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
-              </span>
+        <div className="fixed inset-0 z-[100] lg:hidden">
+          <div
+            className="absolute inset-0 bg-black/60"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <div className="absolute top-0 right-0 h-full w-[85%] max-w-sm bg-[#0a1628] shadow-2xl overflow-y-auto">
+            <div className="flex items-center justify-between p-4 border-b border-[#1e3460]">
+              <div className="leading-tight">
+                <div className="text-white font-bold text-sm uppercase tracking-wide">Центр Строительного</div>
+                <div className="text-[#2d6fdb] font-bold text-sm uppercase tracking-wide">Инжиниринга</div>
+              </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                className="p-2 text-[#8a9bbf] hover:text-white"
                 aria-label="Закрыть меню"
               >
-                <X className="h-6 w-6 text-gray-600 dark:text-gray-400" />
+                <Icon name="X" size={22} />
               </button>
             </div>
 
             <nav className="p-4">
               <ul className="space-y-1">
-                <li>
-                  <Link
-                    to="/"
-                    className="flex items-center py-3 px-4 rounded-lg text-base text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Главная
-                  </Link>
-                </li>
                 {navLinks.map((link) => (
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className={`flex items-center py-3 px-4 rounded-lg text-base hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                      className={`flex items-center py-3 px-4 text-sm font-medium uppercase tracking-wide transition-colors ${
                         location.pathname === link.to
-                          ? "text-[#7A7FEE] font-medium"
-                          : "text-gray-800 dark:text-gray-200"
+                          ? "text-white bg-[#1e4d9b]"
+                          : "text-[#c2cce8] hover:text-white hover:bg-[#112040]"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -126,6 +148,17 @@ export default function Header() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6 pt-6 border-t border-[#1e3460]">
+                <a href="tel:+79026405120" className="flex items-center gap-2 text-[#8a9bbf] hover:text-white text-sm mb-3">
+                  <Icon name="Phone" size={14} />
+                  +7 902 640 51 20
+                </a>
+                <a href="mailto:csiperm@yandex.ru" className="flex items-center gap-2 text-[#8a9bbf] hover:text-white text-sm">
+                  <Icon name="Mail" size={14} />
+                  csiperm@yandex.ru
+                </a>
+              </div>
             </nav>
           </div>
         </div>

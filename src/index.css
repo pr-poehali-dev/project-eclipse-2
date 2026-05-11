@@ -2,50 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap");
+
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  --card: #f3f4f6;
-  --card-foreground: #111827;
-  --card-border: #e5e7eb;
-  --primary: #7a7fee;
+  --background: #f4f6fa;
+  --foreground: #1a2236;
+  --card: #ffffff;
+  --card-foreground: #1a2236;
+  --card-border: #dde3ef;
+  --primary: #1e4d9b;
   --primary-foreground: #ffffff;
-  --secondary: #f3f4f6;
-  --secondary-foreground: #111827;
-  --muted: #6b7280;
-  --muted-foreground: #4b5563;
-  --accent: #f3f4f6;
-  --accent-foreground: #111827;
-  --border: #d1d5db;
-  --input: #d1d5db;
-  --ring: #7a7fee;
-  --radius: 0.75rem;
+  --secondary: #eef1f8;
+  --secondary-foreground: #1a2236;
+  --muted: #6b7a99;
+  --muted-foreground: #4a5568;
+  --accent: #e8edf7;
+  --accent-foreground: #1a2236;
+  --border: #dde3ef;
+  --input: #dde3ef;
+  --ring: #1e4d9b;
+  --radius: 0.375rem;
+  --header-bg: #0a1628;
+  --hero-bg: #0a1628;
 }
 
 .dark {
-  --background: #101112;
-  --foreground: #d9d9d9;
-  --card: #272829;
-  --card-foreground: #ffffff;
-  --card-border: #1a1a1a;
-  --primary: #7a7fee;
+  --background: #0a1628;
+  --foreground: #e8edf7;
+  --card: #112040;
+  --card-foreground: #e8edf7;
+  --card-border: #1e3460;
+  --primary: #2d6fdb;
   --primary-foreground: #ffffff;
-  --secondary: #272829;
-  --secondary-foreground: #ffffff;
-  --muted: #a1a1aa;
-  --muted-foreground: #d4d4d8;
-  --accent: #2a2a2a;
-  --accent-foreground: #ffffff;
-  --border: #2a2a2a;
-  --input: #2a2a2a;
-  --ring: #7a7fee;
+  --secondary: #112040;
+  --secondary-foreground: #e8edf7;
+  --muted: #8a9bbf;
+  --muted-foreground: #c2cce8;
+  --accent: #1a3055;
+  --accent-foreground: #e8edf7;
+  --border: #1e3460;
+  --input: #1e3460;
+  --ring: #2d6fdb;
+  --header-bg: #060f1e;
+  --hero-bg: #060f1e;
 }
 
 @layer base {
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "Roboto", system-ui, sans-serif;
   }
 
   html {
@@ -53,34 +59,40 @@
   }
 
   h1 {
-    font-weight: 500;
-    font-size: 60px;
-    line-height: 1.2em;
-    letter-spacing: 0;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1.15em;
+    letter-spacing: -0.01em;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
   }
 
   h2 {
-    font-weight: 400;
-    font-size: 48px;
+    font-weight: 700;
+    font-size: 38px;
     line-height: 1.2em;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
+    font-family: "Roboto Condensed", "Roboto", sans-serif;
+  }
+
+  h3 {
+    font-family: "Roboto", sans-serif;
   }
 
   @media (max-width: 1440px) {
     h1 {
-      font-size: calc(40px + (60 - 40) * ((100vw - 768px) / (1440 - 768)));
+      font-size: calc(36px + (52 - 36) * ((100vw - 768px) / (1440 - 768)));
     }
     h2 {
-      font-size: calc(36px + (48 - 36) * ((100vw - 768px) / (1440 - 768)));
+      font-size: calc(28px + (38 - 28) * ((100vw - 768px) / (1440 - 768)));
     }
   }
 
   @media (max-width: 768px) {
     h1 {
-      font-size: 40px;
+      font-size: 32px;
     }
     h2 {
-      font-size: 36px;
+      font-size: 26px;
     }
   }
 
@@ -99,38 +111,35 @@
     background-color: var(--card);
     color: var(--card-foreground);
     border: 1px solid var(--card-border);
-    @apply rounded-3xl overflow-hidden shadow-md;
-  }
-
-  .dark .card {
-    background-color: var(--card);
-    background-image: linear-gradient(to bottom, #2d2e2f, #272829);
-    position: relative;
+    @apply rounded-sm overflow-hidden shadow-sm;
   }
 
   .btn-primary {
-    background-color: #7a7fee;
+    background-color: var(--primary);
     color: #ffffff;
-    @apply px-6 py-2.5 rounded-md hover:bg-opacity-90 transition-all text-sm font-medium shadow-sm inline-block;
+    @apply px-6 py-3 rounded-sm hover:opacity-90 transition-all text-sm font-semibold uppercase tracking-wide inline-block;
   }
 
   .btn-secondary {
-    color: var(--foreground);
-    @apply hover:underline transition-all text-sm font-medium py-2.5;
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    @apply px-6 py-3 rounded-sm hover:bg-blue-50 transition-all text-sm font-semibold uppercase tracking-wide inline-block;
   }
 
   .section-title {
-    @apply font-medium mb-2;
+    @apply font-bold mb-2;
     color: var(--foreground);
+    font-family: "Roboto Condensed", sans-serif;
   }
 
   .section-subtitle {
-    color: #7a7fee;
-    @apply font-medium mb-6;
+    color: var(--primary);
+    @apply font-semibold mb-6 uppercase tracking-wider text-sm;
   }
 
   .accent-text {
-    color: #7a7fee;
+    color: var(--primary);
   }
 
   .mobile-menu-overlay {
@@ -150,10 +159,10 @@
     bottom: 0;
     width: 85%;
     max-width: 320px;
-    background-color: var(--background);
+    background-color: #0a1628;
     z-index: 101;
     overflow-y: auto;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   }
 
   .form-container {
@@ -165,44 +174,33 @@
     background-color: transparent;
   }
 
-  .nav-dropdown {
-    @apply relative;
-  }
-
-  .nav-dropdown-content {
-    @apply absolute z-50 mt-2 p-4 rounded-xl shadow-lg;
-    min-width: 220px;
-  }
-
-  .dark .nav-dropdown-content {
-    @apply bg-gray-800 border border-gray-700;
-  }
-
-  .light .nav-dropdown-content {
-    @apply bg-white border border-gray-100;
-  }
-
   .prose h3 {
-    @apply text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white;
+    @apply text-xl font-semibold mt-8 mb-4;
+    color: var(--foreground);
   }
 
   .prose p {
-    @apply text-gray-700 dark:text-gray-300 mb-4;
+    @apply mb-4;
+    color: var(--muted-foreground);
   }
 
   .prose ul {
-    @apply list-disc pl-5 mb-4 text-gray-700 dark:text-gray-300;
+    @apply list-disc pl-5 mb-4;
+    color: var(--muted-foreground);
   }
 
   .prose ol {
-    @apply list-decimal pl-5 mb-4 text-gray-700 dark:text-gray-300;
+    @apply list-decimal pl-5 mb-4;
+    color: var(--muted-foreground);
   }
 
   .prose a {
-    @apply text-[#7A7FEE] hover:underline;
+    color: var(--primary);
+    @apply hover:underline;
   }
 
   .prose strong {
-    @apply font-semibold text-gray-900 dark:text-white;
+    @apply font-semibold;
+    color: var(--foreground);
   }
 }
