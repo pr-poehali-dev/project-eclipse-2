@@ -19,34 +19,26 @@ function CopyButton({ text }: { text: string }) {
     <button
       onClick={handle}
       title="Копировать"
-      className="p-1.5 rounded-sm hover:bg-[#eef1f8] transition-colors flex-shrink-0"
+      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
     >
-      {copied ? (
-        <Icon name="Check" size={16} className="text-green-600" />
-      ) : (
-        <Icon name="Copy" size={16} className="text-[#6b7a99] hover:text-[#1e4d9b]" />
-      )}
+      {copied
+        ? <Icon name="Check" size={16} className="text-green-500" />
+        : <Icon name="Copy" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
+      }
     </button>
   )
 }
 
 function openRoute() {
-  const fallback =
-    "https://yandex.ru/maps/50/perm/?mode=routes&rtext=~%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%2C+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A6%D0%B5%D0%BB%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F%2C+49&rtt=auto"
+  const fallback = "https://yandex.ru/maps/50/perm/?mode=routes&rtext=~%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%2C+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A6%D0%B5%D0%BB%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F%2C+49&rtt=auto"
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
   if (isMobile) {
     const isAndroid = /Android/i.test(navigator.userAgent)
     if (isAndroid) {
-      window.location.href =
-        "intent://build_route_on_map?lat_to=58.05165&lon_to=56.349485#Intent;scheme=yandexmaps;package=ru.yandex.yandexmaps;S.browser_fallback_url=" +
-        encodeURIComponent(fallback) +
-        ";end"
+      window.location.href = "intent://build_route_on_map?lat_to=58.05165&lon_to=56.349485#Intent;scheme=yandexmaps;package=ru.yandex.yandexmaps;S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end"
     } else {
-      window.location.href =
-        "yandexmaps://build_route_on_map?lat_to=58.05165&lon_to=56.349485"
-      setTimeout(() => {
-        window.location.href = fallback
-      }, 1500)
+      window.location.href = "yandexmaps://build_route_on_map?lat_to=58.05165&lon_to=56.349485"
+      setTimeout(() => { window.location.href = fallback }, 1500)
     }
   } else {
     window.open(fallback, "_blank")
@@ -56,223 +48,119 @@ function openRoute() {
 function RouteButton() {
   return (
     <button
-      onClick={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        openRoute()
-      }}
+      onClick={(e) => { e.preventDefault(); e.stopPropagation(); openRoute() }}
       title="Построить маршрут"
-      className="p-1.5 rounded-sm hover:bg-[#eef1f8] transition-colors flex-shrink-0"
+      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
     >
-      <Icon
-        name="Navigation"
-        size={16}
-        className="text-[#6b7a99] hover:text-[#1e4d9b]"
-      />
+      <Icon name="Navigation" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
     </button>
   )
 }
 
-const contactCards = [
-  {
-    icon: "Phone",
-    label: "Телефон",
-    content: (
-      <div className="flex items-center gap-2 w-full">
-        <a
-          href="tel:+79026405120"
-          className="text-lg font-bold text-[#1a2236] hover:text-[#1e4d9b] transition-colors"
-        >
-          +7 902 640 51 20
-        </a>
-        <div className="ml-auto flex items-center gap-0.5">
-          <a
-            href="tel:+79026405120"
-            title="Позвонить"
-            className="p-1.5 rounded-sm hover:bg-[#eef1f8] transition-colors flex-shrink-0"
-          >
-            <Icon
-              name="Phone"
-              size={16}
-              className="text-[#6b7a99] hover:text-[#1e4d9b]"
-            />
-          </a>
-          <CopyButton text="+79026405120" />
-        </div>
-      </div>
-    ),
-  },
-  {
-    icon: "Mail",
-    label: "Электронная почта",
-    content: (
-      <div className="flex items-center gap-2 w-full">
-        <a
-          href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lg font-bold text-[#1a2236] hover:text-[#1e4d9b] transition-colors"
-        >
-          csiperm@yandex.ru
-        </a>
-        <div className="ml-auto flex items-center gap-0.5">
-          <a
-            href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Написать письмо"
-            className="p-1.5 rounded-sm hover:bg-[#eef1f8] transition-colors flex-shrink-0"
-          >
-            <Icon
-              name="Mail"
-              size={16}
-              className="text-[#6b7a99] hover:text-[#1e4d9b]"
-            />
-          </a>
-          <CopyButton text="csiperm@yandex.ru" />
-        </div>
-      </div>
-    ),
-  },
-  {
-    icon: "MapPin",
-    label: "Адрес офиса",
-    content: (
-      <div className="flex items-center gap-2 w-full">
-        <button
-          onClick={openRoute}
-          className="text-lg font-bold text-[#1a2236] hover:text-[#1e4d9b] transition-colors text-left"
-        >
-          г. Пермь, ул. Целинная, 49
-        </button>
-        <div className="ml-auto flex items-center gap-0.5">
-          <RouteButton />
-          <CopyButton text="г. Пермь, ул. Целинная, 49" />
-        </div>
-      </div>
-    ),
-  },
-]
-
 export default function ContactsPage() {
   return (
-    <main className="min-h-screen bg-[#f4f6fa]">
+    <main className="min-h-screen bg-white dark:bg-[#111111]">
       <Helmet>
         <title>Контакты — Центр Строительного Инжиниринга, Пермь</title>
-        <meta
-          name="description"
-          content="Контакты Центра Строительного Инжиниринга в Перми. Телефон: +7 902 640 51 20, email: csiperm@yandex.ru. Адрес: г. Пермь, ул. Целинная, 49."
-        />
-        <meta
-          property="og:title"
-          content="Контакты — Центр Строительного Инжиниринга, Пермь"
-        />
-        <meta
-          property="og:description"
-          content="Свяжитесь с нами: +7 902 640 51 20, csiperm@yandex.ru. г. Пермь, ул. Целинная, 49."
-        />
+        <meta name="description" content="Контакты Центра Строительного Инжиниринга в Перми. Телефон: +7 902 640 51 20, email: csiperm@yandex.ru. Адрес: г. Пермь, ул. Целинная, 49." />
+        <meta property="og:title" content="Контакты — Центр Строительного Инжиниринга, Пермь" />
+        <meta property="og:description" content="Свяжитесь с нами: +7 902 640 51 20, csiperm@yandex.ru. г. Пермь, ул. Целинная, 49." />
         <link rel="canonical" href="/contacts" />
       </Helmet>
-
       <Header />
-
-      {/* Hero */}
-      <section
-        className="relative"
-        style={{
-          background: "linear-gradient(135deg, #0a1628 0%, #112040 100%)",
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-5 pointer-events-none"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.15) 39px,rgba(255,255,255,0.15) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,0.15) 39px,rgba(255,255,255,0.15) 40px)",
-          }}
-        />
-        <div className="container relative py-16 md:py-24">
-          <div className="flex items-center gap-2 mb-5">
-            <span className="block w-1 h-4 bg-[#1e4d9b]" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#1e4d9b]">
-              Центр Строительного Инжиниринга
-            </span>
-          </div>
-          <h1 className="text-white font-bold leading-tight mb-4">
-            Контакты
+      <div className="container pt-4 pb-16">
+        <section className="my-8">
+          <h1 className="text-black dark:text-white mb-4 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
+            Контактная
+            <span className="block text-[#7A7FEE]">информация</span>
           </h1>
-          <p className="text-[#8a9bbf] max-w-2xl text-lg leading-relaxed">
-            Мы находимся в Перми и готовы ответить на все ваши вопросы в рабочее
-            время. Пн–Пт: 9:00–18:00.
+          <p className="mb-10 max-w-2xl text-gray-700 dark:text-gray-300">
+            Мы находимся в Перми и готовы ответить на все ваши вопросы в рабочее время.
           </p>
-        </div>
-      </section>
 
-      {/* Contact cards */}
-      <section className="py-14 md:py-20">
-        <div className="container">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="block w-1 h-4 bg-[#1e4d9b]" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#1e4d9b]">
-              Как с нами связаться
-            </span>
-          </div>
-          <h2 className="font-bold text-[#1a2236] mb-10">
-            Контактная информация
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-            {contactCards.map((card) => (
-              <div
-                key={card.label}
-                className="border border-[#dde3ef] bg-white p-6 flex flex-col items-start gap-4 group transition-colors duration-200 hover:bg-[#eef1f8]"
-              >
-                <div className="w-12 h-12 bg-[#1e4d9b] flex items-center justify-center flex-shrink-0">
-                  <Icon
-                    name={card.icon}
-                    fallback="CircleDot"
-                    size={22}
-                    className="text-white"
-                  />
-                </div>
-                <div className="w-full">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#6b7a99] mb-2">
-                    {card.label}
-                  </p>
-                  {card.content}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
+              <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+                <Icon name="Phone" size={22} className="text-white" />
+              </div>
+              <div className="w-full">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Телефон</p>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="tel:+79026405120"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  >+7 902 640 51 20</a>
+                  <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
+                    <a
+                      href="tel:+79026405120"
+                      title="Позвонить"
+                      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+                    >
+                      <Icon name="Phone" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
+                    </a>
+                    <CopyButton text="+79026405120" />
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* Work hours strip */}
-          <div className="border border-[#dde3ef] bg-white p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12">
-            <div className="w-12 h-12 bg-[#1e4d9b] flex items-center justify-center flex-shrink-0">
-              <Icon name="Clock" size={22} className="text-white" />
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#6b7a99] mb-1">
-                Режим работы
-              </p>
-              <p className="text-lg font-bold text-[#1a2236]">
-                Пн–Пт: 9:00–18:00
-              </p>
-            </div>
-            <div className="sm:ml-auto">
-              <span className="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 uppercase tracking-wide">
-                Открыто сегодня
-              </span>
-            </div>
-          </div>
-
-          {/* Map */}
-          <div className="border border-[#dde3ef] bg-white overflow-hidden">
-            <div className="px-5 py-4 border-b border-[#dde3ef] flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#1e4d9b] flex items-center justify-center flex-shrink-0">
-                <Icon name="Map" size={16} className="text-white" />
+            <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
+              <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+                <Icon name="Mail" size={22} className="text-white" />
               </div>
-              <span className="font-semibold text-[#1a2236] text-sm">
-                Мы на карте — г. Пермь, ул. Целинная, 49
-              </span>
+              <div className="w-full">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Электронная почта</p>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  >
+                    csiperm@yandex.ru
+                  </a>
+                  <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
+                    <a
+                      href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Написать письмо"
+                      className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
+                    >
+                      <Icon name="Mail" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
+                    </a>
+                    <CopyButton text="csiperm@yandex.ru" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
+              <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+                <Icon name="MapPin" size={22} className="text-white" />
+              </div>
+              <div className="w-full">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Адрес офиса</p>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={openRoute}
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors text-left rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  >
+                    г. Пермь, ул. Целинная, 49
+                  </button>
+                  <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
+                    <RouteButton />
+                    <CopyButton text="г. Пермь, ул. Целинная, 49" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="card overflow-hidden shadow-lg">
+            <div className="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center gap-2">
+              <Icon name="Map" size={18} className="text-[#7A7FEE]" />
+              <span className="font-medium text-black dark:text-white">Мы на карте — г. Пермь, ул. Целинная, 49</span>
             </div>
             <div className="w-full h-[450px]">
               <iframe
@@ -286,49 +174,8 @@ export default function ContactsPage() {
               />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        style={{
-          background: "linear-gradient(135deg, #0a1628 0%, #112040 100%)",
-        }}
-        className="py-14 md:py-20"
-      >
-        <div className="container text-center">
-          <div className="flex items-center justify-center gap-2 mb-5">
-            <span className="block w-1 h-4 bg-[#1e4d9b]" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#1e4d9b]">
-              Готовы помочь
-            </span>
-          </div>
-          <h2 className="font-bold text-white mb-4">Есть вопросы?</h2>
-          <p className="text-[#8a9bbf] mb-8 max-w-xl mx-auto text-lg leading-relaxed">
-            Позвоните или напишите нам — ответим на все вопросы и проконсультируем
-            по вашему проекту бесплатно.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="tel:+79026405120"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              <Icon name="Phone" size={16} />
-              +7 902 640 51 20
-            </a>
-            <a
-              href="https://mail.yandex.ru/compose?to=csiperm@yandex.ru"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary inline-flex items-center gap-2"
-            >
-              <Icon name="Mail" size={16} />
-              csiperm@yandex.ru
-            </a>
-          </div>
-        </div>
-      </section>
-
+        </section>
+      </div>
       <Footer />
     </main>
   )
