@@ -2,54 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
-
 :root {
   --background: #ffffff;
-  --foreground: #1a1a1a;
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
+  --foreground: #111827;
+  --card: #f3f4f6;
+  --card-foreground: #111827;
   --card-border: #e5e7eb;
-  --primary: #e8440a;
+  --primary: #7a7fee;
   --primary-foreground: #ffffff;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #1a1a1a;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
   --muted: #6b7280;
   --muted-foreground: #4b5563;
-  --accent: #f5f5f5;
-  --accent-foreground: #1a1a1a;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
-  --ring: #e8440a;
-  --radius: 0.25rem;
-  --hero-bg: #1c1c1c;
-  --header-bg: #1c1c1c;
+  --accent: #f3f4f6;
+  --accent-foreground: #111827;
+  --border: #d1d5db;
+  --input: #d1d5db;
+  --ring: #7a7fee;
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: #1c1c1c;
-  --foreground: #f5f5f5;
-  --card: #2a2a2a;
-  --card-foreground: #f5f5f5;
-  --card-border: #3a3a3a;
-  --primary: #e8440a;
+  --background: #101112;
+  --foreground: #d9d9d9;
+  --card: #272829;
+  --card-foreground: #ffffff;
+  --card-border: #1a1a1a;
+  --primary: #7a7fee;
   --primary-foreground: #ffffff;
-  --secondary: #2a2a2a;
-  --secondary-foreground: #f5f5f5;
-  --muted: #9ca3af;
-  --muted-foreground: #d1d5db;
+  --secondary: #272829;
+  --secondary-foreground: #ffffff;
+  --muted: #a1a1aa;
+  --muted-foreground: #d4d4d8;
   --accent: #2a2a2a;
-  --accent-foreground: #f5f5f5;
-  --border: #3a3a3a;
-  --input: #3a3a3a;
-  --ring: #e8440a;
+  --accent-foreground: #ffffff;
+  --border: #2a2a2a;
+  --input: #2a2a2a;
+  --ring: #7a7fee;
 }
 
 @layer base {
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Montserrat", system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
   }
 
   html {
@@ -57,41 +53,34 @@
   }
 
   h1 {
-    font-weight: 800;
-    font-size: 52px;
-    line-height: 1.1em;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 1.2em;
+    letter-spacing: 0;
   }
 
   h2 {
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 1.15em;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-  }
-
-  h3 {
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 1.2em;
+    letter-spacing: 0;
   }
 
   @media (max-width: 1440px) {
     h1 {
-      font-size: calc(32px + (52 - 32) * ((100vw - 768px) / (1440 - 768)));
+      font-size: calc(40px + (60 - 40) * ((100vw - 768px) / (1440 - 768)));
     }
     h2 {
-      font-size: calc(24px + (36 - 24) * ((100vw - 768px) / (1440 - 768)));
+      font-size: calc(36px + (48 - 36) * ((100vw - 768px) / (1440 - 768)));
     }
   }
 
   @media (max-width: 768px) {
     h1 {
-      font-size: 28px;
+      font-size: 40px;
     }
     h2 {
-      font-size: 22px;
+      font-size: 36px;
     }
   }
 
@@ -110,50 +99,38 @@
     background-color: var(--card);
     color: var(--card-foreground);
     border: 1px solid var(--card-border);
-    @apply rounded-none overflow-hidden;
+    @apply rounded-3xl overflow-hidden shadow-md;
+  }
+
+  .dark .card {
+    background-color: var(--card);
+    background-image: linear-gradient(to bottom, #2d2e2f, #272829);
+    position: relative;
   }
 
   .btn-primary {
-    background-color: #e8440a;
+    background-color: #7a7fee;
     color: #ffffff;
-    @apply px-6 py-3 rounded-none font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 transition-all hover:bg-[#c93a08];
+    @apply px-6 py-2.5 rounded-md hover:bg-opacity-90 transition-all text-sm font-medium shadow-sm inline-block;
   }
 
   .btn-secondary {
-    background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    @apply px-6 py-3 rounded-none font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 transition-all hover:bg-white hover:text-[#1c1c1c];
-  }
-
-  .btn-outline-orange {
-    background-color: transparent;
-    color: #e8440a;
-    border: 2px solid #e8440a;
-    @apply px-6 py-3 rounded-none font-semibold text-sm uppercase tracking-wider inline-flex items-center gap-2 transition-all hover:bg-[#E8440A] hover:text-white;
-  }
-
-  .section-label {
-    color: #e8440a;
-    @apply text-xs font-bold uppercase tracking-[0.2em] mb-3 flex items-center gap-2;
-  }
-
-  .section-label::before {
-    content: "";
-    display: inline-block;
-    width: 24px;
-    height: 2px;
-    background-color: #e8440a;
-    flex-shrink: 0;
+    color: var(--foreground);
+    @apply hover:underline transition-all text-sm font-medium py-2.5;
   }
 
   .section-title {
-    @apply font-bold mb-2;
+    @apply font-medium mb-2;
     color: var(--foreground);
   }
 
+  .section-subtitle {
+    color: #7a7fee;
+    @apply font-medium mb-6;
+  }
+
   .accent-text {
-    color: #e8440a;
+    color: #7a7fee;
   }
 
   .mobile-menu-overlay {
@@ -162,7 +139,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
   }
 
@@ -173,9 +150,10 @@
     bottom: 0;
     width: 85%;
     max-width: 320px;
-    background-color: #1c1c1c;
+    background-color: var(--background);
     z-index: 101;
     overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .form-container {
@@ -187,24 +165,41 @@
     background-color: transparent;
   }
 
+  .nav-dropdown {
+    @apply relative;
+  }
+
+  .nav-dropdown-content {
+    @apply absolute z-50 mt-2 p-4 rounded-xl shadow-lg;
+    min-width: 220px;
+  }
+
+  .dark .nav-dropdown-content {
+    @apply bg-gray-800 border border-gray-700;
+  }
+
+  .light .nav-dropdown-content {
+    @apply bg-white border border-gray-100;
+  }
+
   .prose h3 {
     @apply text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white;
   }
 
   .prose p {
-    @apply text-gray-600 dark:text-gray-300 mb-4;
+    @apply text-gray-700 dark:text-gray-300 mb-4;
   }
 
   .prose ul {
-    @apply list-disc pl-5 mb-4 text-gray-600 dark:text-gray-300;
+    @apply list-disc pl-5 mb-4 text-gray-700 dark:text-gray-300;
   }
 
   .prose ol {
-    @apply list-decimal pl-5 mb-4 text-gray-600 dark:text-gray-300;
+    @apply list-decimal pl-5 mb-4 text-gray-700 dark:text-gray-300;
   }
 
   .prose a {
-    @apply text-[#E8440A] hover:underline;
+    @apply text-[#7A7FEE] hover:underline;
   }
 
   .prose strong {

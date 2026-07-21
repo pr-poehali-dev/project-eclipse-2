@@ -1,60 +1,33 @@
-import Icon from "@/components/ui/icon"
 import ContactFormButton from "./ContactFormButton"
 
 export default function CallToAction() {
   return (
-    <section id="contact" className="bg-[#1c1c1c] relative overflow-hidden">
-      {/* Оранжевая полоса слева */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#E8440A]" />
-
-      <div className="container py-16">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
-          {/* Левая часть — текст */}
-          <div className="flex-1">
-            <div className="section-label" style={{ color: "#E8440A" }}>Свяжитесь с нами</div>
-            <h2 className="text-white mb-4">
-              Предложим решение задачи и пришлём расчёт с планом работ за 1 день
-            </h2>
-            <p className="text-gray-400 text-sm max-w-lg leading-relaxed">
-              Оставьте заявку — менеджер перезвонит в рабочее время, уточнит детали и подготовит коммерческое предложение.
-            </p>
-          </div>
-
-          {/* Правая часть — контакты и кнопки */}
-          <div className="flex flex-col gap-4 lg:min-w-[320px]">
-            <a
-              href="tel:+79026405120"
-              className="flex items-center gap-4 group"
-            >
-              <div className="w-12 h-12 bg-[#E8440A] flex items-center justify-center flex-shrink-0 group-hover:bg-[#c93a08] transition-colors">
-                <Icon name="Phone" size={18} className="text-white" />
-              </div>
-              <div>
-                <div className="text-gray-400 text-xs uppercase tracking-wider">Телефон</div>
-                <div className="text-white font-bold text-lg">+7 902 640 51 20</div>
-              </div>
+    <section id="contact" className="card my-20 relative overflow-hidden shadow-md">
+      <div className="p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-start">
+        <div className="w-full md:w-3/5 z-10">
+          <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
+            Свяжитесь с нами — <span className="text-[#7A7FEE] dark:text-[#7A7FEE]">ответим</span> быстро
+          </h2>
+          <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
+            Нужен конкретный прибор, сертификат или консультация по оборудованию?
+          </p>
+          <p className="mb-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
+            Оставьте заявку — менеджер свяжется с вами в рабочее время и поможет подобрать нужное решение.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <ContactFormButton />
+            <a href="tel:+78001234567" className="btn-secondary text-black dark:text-white">
+              +7 (800) 123-45-67
             </a>
-
-            <a
-              href="mailto:csiperm@yandex.ru"
-              className="flex items-center gap-4 group"
-            >
-              <div className="w-12 h-12 bg-[#2e2e2e] flex items-center justify-center flex-shrink-0 group-hover:bg-[#E8440A] transition-colors">
-                <Icon name="Mail" size={18} className="text-white" />
-              </div>
-              <div>
-                <div className="text-gray-400 text-xs uppercase tracking-wider">Email</div>
-                <div className="text-white font-semibold">csiperm@yandex.ru</div>
-              </div>
-            </a>
-
-            <div className="flex flex-col sm:flex-row gap-3 mt-2">
-              <ContactFormButton />
-              <a href="tel:+79026405120" className="btn-secondary text-center justify-center">
-                Позвонить
-              </a>
-            </div>
           </div>
+        </div>
+
+        <div className="hidden md:block md:w-2/5 md:absolute md:right-0 md:top-0 md:bottom-0 md:flex md:items-center">
+          <img
+            src="/purple-circle-wave-static.png"
+            alt="Purple Wave"
+            className="w-full h-auto md:h-full md:w-auto md:object-cover md:object-left"
+          />
         </div>
       </div>
     </section>

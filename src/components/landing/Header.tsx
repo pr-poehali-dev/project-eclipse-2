@@ -1,113 +1,110 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { Menu, X } from "lucide-react"
+import ThemeToggle from "./ThemeToggle"
 import { Link, useLocation } from "react-router-dom"
-import Icon from "@/components/ui/icon"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    handleScroll()
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const navLinks = [
     { to: "/services", label: "Услуги" },
-    { to: "/equipment", label: "Оборудование" },
-    { to: "/certificates", label: "Сертификаты" },
     { to: "/contacts", label: "Контакты" },
+    { to: "/certificates", label: "Сертификаты" },
+    { to: "/equipment", label: "Оборудование" },
   ]
 
   return (
     <>
-      <header className="w-full bg-[#1c1c1c] z-40 sticky top-0">
-        <div className="container">
-          <div className="flex items-center justify-between h-16">
-            {/* Логотип */}
-            <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
+      <header
+        className={`sticky top-0 z-40 w-full transition-all duration-200 ${
+          isScrolled ? "bg-white/90 dark:bg-[#111111]/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        }`}
+      >
+        <div className="container py-4">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2">
               <img
                 src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
-                alt="ЦСИ"
-                className="h-8 w-8 object-contain"
+                alt="Логотип ЦСИ"
+                className="h-9 w-9 object-contain"
               />
-              <div className="leading-tight">
-                <div className="text-white font-bold text-sm uppercase tracking-wider">ЦСИ</div>
-                <div className="text-[#E8440A] font-semibold text-[10px] uppercase tracking-wider">Строительный инжиниринг</div>
-              </div>
+              <span className="text-lg md:text-xl font-bold text-black dark:text-white leading-tight">
+                Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
+              </span>
             </Link>
 
-            {/* Десктоп навигация */}
-            <nav className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`px-4 py-5 text-xs font-semibold uppercase tracking-wider transition-colors border-b-2 ${
-                    location.pathname === link.to
-                      ? "text-[#E8440A] border-[#E8440A]"
-                      : "text-gray-300 hover:text-white border-transparent hover:border-gray-500"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+            <div className="flex items-center space-x-2 md:space-x-4">
+              <nav className="hidden md:block">
+                <ul className="flex space-x-2">
+                  {navLinks.map((link) => (
+                    <li key={link.to}>
+                      <Link
+                        to={link.to}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                          location.pathname === link.to
+                            ? "bg-[#7A7FEE] text-white"
+                            : "text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
 
-            {/* Правая часть: телефон + иконки */}
-            <div className="hidden md:flex items-center gap-4">
-              <a
-                href="tel:+79026405120"
-                className="flex items-center gap-2 text-white font-bold text-sm hover:text-[#E8440A] transition-colors"
+              <ThemeToggle />
+
+              <button
+                onClick={() => setMobileMenuOpen(true)}
+                className="p-2 rounded-md bg-transparent hover:bg-gray-200/50 dark:hover:bg-gray-800/20 md:hidden"
+                aria-label="Меню"
               >
-                <div className="w-7 h-7 bg-[#E8440A] flex items-center justify-center flex-shrink-0">
-                  <Icon name="Phone" size={13} className="text-white" />
-                </div>
-                +7 902 640 51 20
-              </a>
-              <div className="flex items-center gap-1.5">
-                <a
-                  href="mailto:csiperm@yandex.ru"
-                  className="w-7 h-7 bg-[#2e2e2e] hover:bg-[#E8440A] flex items-center justify-center transition-colors"
-                  title="Email"
-                >
-                  <Icon name="Mail" size={13} className="text-white" />
-                </a>
-                <a
-                  href="https://t.me/csiperm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 bg-[#2e2e2e] hover:bg-[#E8440A] flex items-center justify-center transition-colors"
-                  title="Telegram"
-                >
-                  <Icon name="Send" size={13} className="text-white" />
-                </a>
-              </div>
+                <Menu className="h-6 w-6 text-black dark:text-white" />
+              </button>
             </div>
-
-            {/* Мобильная кнопка */}
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="md:hidden p-2 text-white"
-              aria-label="Меню"
-            >
-              <Icon name="Menu" size={22} />
-            </button>
           </div>
         </div>
       </header>
 
-      {/* Мобильное меню */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] md:hidden">
-          <div className="absolute inset-0 bg-black/70" onClick={() => setMobileMenuOpen(false)} />
-          <div className="absolute top-0 right-0 h-full w-[85%] max-w-sm bg-[#1c1c1c] overflow-y-auto">
-            <div className="flex items-center justify-between p-4 border-b border-[#2e2e2e]">
-              <span className="text-white font-bold text-sm uppercase tracking-wider">Меню</span>
-              <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-gray-400 hover:text-white">
-                <Icon name="X" size={20} />
+        <div className="fixed inset-0 z-[100] bg-black/50 md:hidden">
+          <div className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white dark:bg-[#111111] shadow-xl overflow-y-auto">
+            <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111111]">
+              <img
+                src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
+                alt="Логотип ЦСИ"
+                className="h-8 w-8 object-contain"
+              />
+              <span className="text-base font-bold text-black dark:text-white leading-tight">
+                Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
+              </span>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Закрыть меню"
+              >
+                <X className="h-6 w-6 text-gray-600 dark:text-gray-400" />
               </button>
             </div>
+
             <nav className="p-4">
-              <ul className="space-y-0.5">
+              <ul className="space-y-1">
                 <li>
                   <Link
                     to="/"
-                    className="block py-3 px-4 text-sm font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-[#2e2e2e] transition-colors"
+                    className="flex items-center py-3 px-4 rounded-lg text-base text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Главная
@@ -117,10 +114,10 @@ export default function Header() {
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className={`block py-3 px-4 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                      className={`flex items-center py-3 px-4 rounded-lg text-base hover:bg-gray-100 dark:hover:bg-gray-800 ${
                         location.pathname === link.to
-                          ? "text-[#E8440A] bg-[#2e2e2e]"
-                          : "text-gray-300 hover:text-white hover:bg-[#2e2e2e]"
+                          ? "text-[#7A7FEE] font-medium"
+                          : "text-gray-800 dark:text-gray-200"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -129,16 +126,6 @@ export default function Header() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 pt-6 border-t border-[#2e2e2e] space-y-3">
-                <a href="tel:+79026405120" className="flex items-center gap-3 text-white font-bold">
-                  <Icon name="Phone" size={14} className="text-[#E8440A]" />
-                  +7 902 640 51 20
-                </a>
-                <a href="mailto:csiperm@yandex.ru" className="flex items-center gap-3 text-gray-400 text-sm">
-                  <Icon name="Mail" size={14} className="text-[#E8440A]" />
-                  csiperm@yandex.ru
-                </a>
-              </div>
             </nav>
           </div>
         </div>
