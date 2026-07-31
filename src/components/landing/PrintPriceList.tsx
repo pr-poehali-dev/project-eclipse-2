@@ -14,7 +14,7 @@ const services = [
   { id: 3, name: "Постобработка изделия", desc: "Шлифовка, покраска, склейка деталей", price: "от 500 ₽", icon: "Wand2" },
 ]
 
-export default function PriceList() {
+export default function PrintPriceList() {
   return (
     <section className="py-16 bg-white dark:bg-[#111111]">
       <div className="container">

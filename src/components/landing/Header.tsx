@@ -19,7 +19,7 @@ export default function Header() {
 
   const navLinks = [
     { to: "/services", label: "Услуги" },
-    { to: "/print-order", label: "Заказать печать" },
+    { to: "/print-order", label: "3D печать" },
     { to: "/scan-order", label: "Сканирование" },
     { to: "/contacts", label: "Контакты" },
   ]
@@ -40,7 +40,7 @@ export default function Header() {
                 className="h-9 w-9 object-contain"
               />
               <span className="text-lg md:text-xl font-bold text-black dark:text-white leading-tight">
-                Центр <span className="text-[#E8440A]">Строительного</span> Инжиниринга
+                Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
               </span>
             </Link>
 
@@ -53,7 +53,7 @@ export default function Header() {
                         to={link.to}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                           location.pathname === link.to
-                            ? "bg-[#E8440A] text-white"
+                            ? "bg-[#7A7FEE] text-white"
                             : "text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                         }`}
                       >
@@ -88,7 +88,7 @@ export default function Header() {
                 className="h-8 w-8 object-contain"
               />
               <span className="text-base font-bold text-black dark:text-white leading-tight">
-                Центр <span className="text-[#E8440A]">Строительного</span> Инжиниринга
+                Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
@@ -116,7 +116,7 @@ export default function Header() {
                       to={link.to}
                       className={`flex items-center py-3 px-4 rounded-lg text-base hover:bg-gray-100 dark:hover:bg-gray-800 ${
                         location.pathname === link.to
-                          ? "text-[#E8440A] font-medium"
+                          ? "text-[#7A7FEE] font-medium"
                           : "text-gray-800 dark:text-gray-200"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}

@@ -2,6 +2,12 @@ import { useState } from "react"
 import { Helmet } from "react-helmet-async"
 import Header from "@/components/landing/Header"
 import Footer from "@/components/landing/Footer"
+import PrintHero from "@/components/landing/PrintHero"
+import PrintServices from "@/components/landing/PrintServices"
+import PrintFormats from "@/components/landing/PrintFormats"
+import PrintGallery from "@/components/landing/PrintGallery"
+import PrintPriceList from "@/components/landing/PrintPriceList"
+import PrintCallToAction from "@/components/landing/PrintCallToAction"
 import Icon from "@/components/ui/icon"
 import { toast } from "@/hooks/use-toast"
 import func2url from "../../backend/func2url.json"
@@ -85,16 +91,27 @@ export default function PrintOrderPage() {
   return (
     <>
       <Helmet>
-        <title>Заказать 3D-печать — Центр Строительного Инжиниринга</title>
-        <meta name="description" content="Закажите печать детали на 3D-принтере. Загрузите модель, выберите материал и цвет — рассчитаем стоимость и напечатаем." />
+        <title>3D печать — Центр Строительного Инжиниринга</title>
+        <meta name="description" content="Закажите печать детали на 3D-принтере QIDI Q2. Загрузите модель, выберите материал и цвет — рассчитаем стоимость и напечатаем." />
       </Helmet>
       <main className="min-h-screen bg-white dark:bg-[#111111]">
         <Header />
-        <div className="container py-12">
+        <div className="container pt-4">
+          <PrintHero />
+          <PrintServices />
+        </div>
+        <PrintFormats />
+        <PrintGallery />
+        <PrintPriceList />
+        <div className="container">
+          <PrintCallToAction />
+        </div>
+
+        <div id="order-form" className="container py-12 scroll-mt-20">
           <div className="section-label">Заказ печати</div>
-          <h1 className="text-black dark:text-white mb-4 text-3xl md:text-4xl font-medium leading-tight">
+          <h2 className="text-black dark:text-white mb-4 text-3xl md:text-4xl font-medium leading-tight">
             Заказать 3D-печать детали
-          </h1>
+          </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-xl mb-10">
             Заполните форму — приложите файл модели, если он у вас есть, укажите материал и цвет. Мы свяжемся с вами для подтверждения заказа и расчёта стоимости.
           </p>

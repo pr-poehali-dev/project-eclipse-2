@@ -4,11 +4,11 @@ export default function Footer() {
       <div className="flex flex-col items-center text-center">
         <a href="/" className="flex items-center justify-center mb-4">
           <span className="text-xl font-bold text-black dark:text-white leading-tight text-center">
-            Центр <span className="text-[#E8440A]">Строительного</span> Инжиниринга
+            Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
           </span>
         </a>
         <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-2">
-          3D-печать деталей на заказ и выезд на 3D-сканирование.
+          Профессиональные строительные услуги и инжиниринговые решения.
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-8">
           Тел.: +7 902 640 51 20 · csiperm@yandex.ru

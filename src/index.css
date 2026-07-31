@@ -8,7 +8,7 @@
   --card: #f3f4f6;
   --card-foreground: #111827;
   --card-border: #e5e7eb;
-  --primary: #e8440a;
+  --primary: #7a7fee;
   --primary-foreground: #ffffff;
   --secondary: #f3f4f6;
   --secondary-foreground: #111827;
@@ -18,7 +18,7 @@
   --accent-foreground: #111827;
   --border: #d1d5db;
   --input: #d1d5db;
-  --ring: #e8440a;
+  --ring: #7a7fee;
   --radius: 0.75rem;
 }
 
@@ -28,7 +28,7 @@
   --card: #272829;
   --card-foreground: #ffffff;
   --card-border: #1a1a1a;
-  --primary: #e8440a;
+  --primary: #7a7fee;
   --primary-foreground: #ffffff;
   --secondary: #272829;
   --secondary-foreground: #ffffff;
@@ -38,7 +38,7 @@
   --accent-foreground: #ffffff;
   --border: #2a2a2a;
   --input: #2a2a2a;
-  --ring: #e8440a;
+  --ring: #7a7fee;
 }
 
 @layer base {
@@ -109,7 +109,7 @@
   }
 
   .btn-primary {
-    background-color: #e8440a;
+    background-color: #7a7fee;
     color: #ffffff;
     @apply px-6 py-2.5 rounded-md hover:bg-opacity-90 transition-all text-sm font-medium shadow-sm inline-block;
   }
@@ -132,7 +132,7 @@
   }
 
   .section-subtitle {
-    color: #e8440a;
+    color: #7a7fee;
     @apply font-medium mb-6;
   }
 
@@ -151,7 +151,7 @@
   }
 
   .accent-text {
-    color: #e8440a;
+    color: #7a7fee;
   }
 
   .mobile-menu-overlay {
@@ -220,7 +220,7 @@
   }
 
   .prose a {
-    @apply text-[#E8440A] hover:underline;
+    @apply text-[#7A7FEE] hover:underline;
   }
 
   .prose strong {
