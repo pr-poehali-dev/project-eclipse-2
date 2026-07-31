@@ -1,0 +1,28 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "GET orders list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial",
+      "expectedBody": {
+        "print_orders": [],
+        "scan_orders": []
+      }
+    },
+    {
+      "name": "POST missing name/phone",
+      "method": "POST",
+      "path": "/",
+      "body": {"order_type": "print"},
+      "expectedStatus": 400
+    }
+  ]
+}

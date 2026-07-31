@@ -8,7 +8,7 @@
   --card: #f3f4f6;
   --card-foreground: #111827;
   --card-border: #e5e7eb;
-  --primary: #7a7fee;
+  --primary: #e8440a;
   --primary-foreground: #ffffff;
   --secondary: #f3f4f6;
   --secondary-foreground: #111827;
@@ -18,7 +18,7 @@
   --accent-foreground: #111827;
   --border: #d1d5db;
   --input: #d1d5db;
-  --ring: #7a7fee;
+  --ring: #e8440a;
   --radius: 0.75rem;
 }
 
@@ -28,7 +28,7 @@
   --card: #272829;
   --card-foreground: #ffffff;
   --card-border: #1a1a1a;
-  --primary: #7a7fee;
+  --primary: #e8440a;
   --primary-foreground: #ffffff;
   --secondary: #272829;
   --secondary-foreground: #ffffff;
@@ -38,7 +38,7 @@
   --accent-foreground: #ffffff;
   --border: #2a2a2a;
   --input: #2a2a2a;
-  --ring: #7a7fee;
+  --ring: #e8440a;
 }
 
 @layer base {
@@ -109,7 +109,7 @@
   }
 
   .btn-primary {
-    background-color: #7a7fee;
+    background-color: #e8440a;
     color: #ffffff;
     @apply px-6 py-2.5 rounded-md hover:bg-opacity-90 transition-all text-sm font-medium shadow-sm inline-block;
   }
@@ -119,18 +119,39 @@
     @apply hover:underline transition-all text-sm font-medium py-2.5;
   }
 
+  .btn-outline-orange {
+    background-color: transparent;
+    color: #e8440a;
+    border: 1.5px solid #e8440a;
+    @apply px-6 py-2.5 rounded-md hover:bg-[#e8440a] hover:text-white transition-all text-sm font-medium inline-flex items-center gap-2;
+  }
+
   .section-title {
     @apply font-medium mb-2;
     color: var(--foreground);
   }
 
   .section-subtitle {
-    color: #7a7fee;
+    color: #e8440a;
     @apply font-medium mb-6;
   }
 
+  .section-label {
+    color: #e8440a;
+    @apply text-xs font-bold uppercase tracking-[0.15em] mb-3 flex items-center gap-2;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #e8440a;
+    flex-shrink: 0;
+  }
+
   .accent-text {
-    color: #7a7fee;
+    color: #e8440a;
   }
 
   .mobile-menu-overlay {
@@ -199,7 +220,7 @@
   }
 
   .prose a {
-    @apply text-[#7A7FEE] hover:underline;
+    @apply text-[#E8440A] hover:underline;
   }
 
   .prose strong {

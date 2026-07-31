@@ -1,31 +1,21 @@
-import { useTheme } from "next-themes"
-import { useState, useEffect } from "react"
-
 export default function Footer() {
-  const { resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   return (
     <footer className="container py-8 border-t border-gray-200 dark:border-gray-800">
       <div className="flex flex-col items-center text-center">
         <a href="/" className="flex items-center justify-center mb-4">
           <span className="text-xl font-bold text-black dark:text-white leading-tight text-center">
-            Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
+            Print<span className="text-[#E8440A]">Lab</span> 3D
           </span>
         </a>
         <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-2">
-          Профессиональные строительные услуги и инжиниринговые решения.
+          3D-печать деталей на заказ и выезд на 3D-сканирование.
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-8">
           Тел.: +7 902 640 51 20 · csiperm@yandex.ru
         </p>
 
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          {new Date().getFullYear()} Центр Строительного Инжиниринга. Все права защищены.
+          {new Date().getFullYear()} PrintLab 3D. Все права защищены.
         </p>
       </div>
     </footer>
