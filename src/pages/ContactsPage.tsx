@@ -61,9 +61,9 @@ export default function ContactsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#111111]">
       <Helmet>
-        <title>Контакты — PrintLab 3D, Пермь</title>
-        <meta name="description" content="Контакты PrintLab 3D в Перми. Телефон: +7 902 640 51 20, email: csiperm@yandex.ru. Адрес: г. Пермь, ул. Целинная, 49." />
-        <meta property="og:title" content="Контакты — PrintLab 3D, Пермь" />
+        <title>Контакты — Центр Строительного Инжиниринга, Пермь</title>
+        <meta name="description" content="Контакты Центр Строительного Инжиниринга в Перми. Телефон: +7 902 640 51 20, email: csiperm@yandex.ru. Адрес: г. Пермь, ул. Целинная, 49." />
+        <meta property="og:title" content="Контакты — Центр Строительного Инжиниринга, Пермь" />
         <meta property="og:description" content="Свяжитесь с нами: +7 902 640 51 20, csiperm@yandex.ru. г. Пермь, ул. Целинная, 49." />
         <link rel="canonical" href="/contacts" />
       </Helmet>

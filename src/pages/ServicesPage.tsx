@@ -23,16 +23,16 @@ const services = [
   {
     id: 3,
     title: "FDM-печать пластиком",
-    description: "PLA, ABS, PETG — прочные и доступные материалы для прототипов, корпусов, крепежа и функциональных деталей.",
+    description: "PLA, ABS, PETG — прочные и доступные материалы для прототипов, корпусов, крепежа и функциональных деталей на принтере QIDI Q2.",
     icon: "Layers",
     featured: false,
     link: "/print-order",
   },
   {
     id: 4,
-    title: "SLA-печать смолой",
-    description: "Высокая детализация для миниатюр, ювелирных мастер-моделей и деталей со сложной геометрией и гладкой поверхностью.",
-    icon: "Sparkles",
+    title: "Печать инженерными пластиками",
+    description: "Нейлон (PA), поликарбонат и композиты — для нагруженных деталей, печать при температуре сопла до 370°C в подогреваемой камере.",
+    icon: "Flame",
     featured: false,
     link: "/print-order",
   },
@@ -66,9 +66,9 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#111111]">
       <Helmet>
-        <title>Услуги — 3D-печать и сканирование PrintLab 3D</title>
-        <meta name="description" content="3D-печать деталей на заказ, выезд на 3D-сканирование, FDM и SLA печать, доработка моделей и постобработка изделий." />
-        <meta property="og:title" content="Услуги — 3D-печать и сканирование PrintLab 3D" />
+        <title>Услуги — 3D-печать и сканирование Центр Строительного Инжиниринга</title>
+        <meta name="description" content="3D-печать деталей на заказ на принтере QIDI Q2, выезд на 3D-сканирование, доработка моделей и постобработка изделий." />
+        <meta property="og:title" content="Услуги — 3D-печать и сканирование Центр Строительного Инжиниринга" />
         <meta property="og:description" content="3D-печать деталей на заказ и выезд на 3D-сканирование. Полный спектр услуг." />
         <link rel="canonical" href="/services" />
       </Helmet>
@@ -81,7 +81,7 @@ export default function ServicesPage() {
             <span className="block text-[#E8440A]">услуги</span>
           </h1>
           <p className="mb-12 max-w-2xl text-gray-700 dark:text-gray-300">
-            PrintLab 3D — печать деталей на заказ и выезд на 3D-сканирование. От готового файла до цифровой копии физического объекта — берём на себя весь процесс.
+            Центр Строительного Инжиниринга — печать деталей на заказ и выезд на 3D-сканирование. От готового файла до цифровой копии физического объекта — берём на себя весь процесс.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

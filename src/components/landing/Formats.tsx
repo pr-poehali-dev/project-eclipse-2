@@ -1,21 +1,25 @@
 import Icon from "@/components/ui/icon"
+import printingImg from "@/assets/qidi-q2-printing.jpg"
+import nozzleImg from "@/assets/qidi-q2-nozzle.jpg"
+import scannerImg from "@/assets/einstar-scanner.jpg"
+import examplesImg from "@/assets/qidi-q2-examples.jpg"
 
 const formats = [
   {
     id: 1,
     icon: "Layers",
     title: "FDM-печать пластиком",
-    desc: "PLA, ABS, PETG — прочные функциональные детали, корпуса, крепёж, прототипы. Оптимальное соотношение цены и качества.",
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/bdf1a9ab-187a-4c20-82f9-e2ae74190b50.jpg",
+    desc: "PLA, ABS, PETG, нейлон — прочные функциональные детали, корпуса, крепёж, прототипы на принтере QIDI Q2.",
+    image: printingImg,
     cta: "Заказать печать",
     link: "/print-order",
   },
   {
     id: 2,
-    icon: "Sparkles",
-    title: "Печать смолой (SLA)",
-    desc: "Высокая детализация для миниатюр, ювелирных мастер-моделей и деталей со сложной геометрией.",
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/75e5b8f6-7bad-4499-bacf-01430925f760.jpg",
+    icon: "Flame",
+    title: "Инженерные пластики",
+    desc: "Печать нагруженных деталей при температуре сопла до 370°C в подогреваемой камере — для PA, PC и композитов.",
+    image: nozzleImg,
     cta: "Заказать печать",
     link: "/print-order",
   },
@@ -24,17 +28,17 @@ const formats = [
     icon: "ScanLine",
     title: "Выезд для 3D-сканирования",
     desc: "Приедем к вам, отсканируем деталь любой формы и подготовим цифровую модель для печати или реставрации.",
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/6319695e-fbc2-43e0-81c7-ded125d87fcc.jpg",
+    image: scannerImg,
     cta: "Заказать выезд",
     link: "/scan-order",
   },
   {
     id: 4,
-    icon: "MonitorCog",
-    title: "Обработка скана и модели",
-    desc: "Чистим облако точек, строим полигональную сетку, готовим файл к печати с учётом технологии.",
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/0a980d5b-70d5-4c9b-968a-2d7035b64de0.jpg",
-    cta: "Подробнее",
+    icon: "Package",
+    title: "Готовые изделия на заказ",
+    desc: "Печатаем прототипы, сувениры, декор и функциональные детали любой сложности под ваш проект.",
+    image: examplesImg,
+    cta: "Смотреть примеры",
     link: "/services",
   },
 ]

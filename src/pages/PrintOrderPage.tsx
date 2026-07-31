@@ -6,7 +6,7 @@ import Icon from "@/components/ui/icon"
 import { toast } from "@/hooks/use-toast"
 import func2url from "../../backend/func2url.json"
 
-const materials = ["PLA пластик", "ABS пластик", "PETG пластик", "Фотополимерная смола", "Другое / не знаю"]
+const materials = ["PLA пластик", "ABS пластик", "PETG пластик", "Нейлон (PA)", "Другое / не знаю"]
 const colors = ["Белый", "Чёрный", "Серый", "Красный", "Синий", "Жёлтый", "Прозрачный", "Другой / не важно"]
 
 export default function PrintOrderPage() {
@@ -85,7 +85,7 @@ export default function PrintOrderPage() {
   return (
     <>
       <Helmet>
-        <title>Заказать 3D-печать — PrintLab 3D</title>
+        <title>Заказать 3D-печать — Центр Строительного Инжиниринга</title>
         <meta name="description" content="Закажите печать детали на 3D-принтере. Загрузите модель, выберите материал и цвет — рассчитаем стоимость и напечатаем." />
       </Helmet>
       <main className="min-h-screen bg-white dark:bg-[#111111]">

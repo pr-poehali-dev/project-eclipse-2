@@ -5,9 +5,9 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>PrintLab 3D — 3D-печать деталей на заказ и 3D-сканирование</title>
+        <title>Центр Строительного Инжиниринга — 3D-печать деталей на заказ и 3D-сканирование</title>
         <meta name="description" content="Печать деталей на 3D-принтере по вашему файлу. Выезд специалиста с 3D-сканером для оцифровки детали и последующей печати." />
-        <meta property="og:title" content="PrintLab 3D — 3D-печать деталей на заказ и 3D-сканирование" />
+        <meta property="og:title" content="Центр Строительного Инжиниринга — 3D-печать деталей на заказ и 3D-сканирование" />
         <meta property="og:description" content="Печать деталей на 3D-принтере на заказ. Выезд на 3D-сканирование для последующей печати." />
         <link rel="canonical" href="/" />
       </Helmet>

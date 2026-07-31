@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
 import { Link, useLocation } from "react-router-dom"
-import Icon from "@/components/ui/icon"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -35,11 +34,13 @@ export default function Header() {
         <div className="container py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-9 h-9 bg-[#E8440A] rounded-lg flex items-center justify-center flex-shrink-0">
-                <Icon name="Boxes" size={20} className="text-white" />
-              </div>
+              <img
+                src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
+                alt="Логотип ЦСИ"
+                className="h-9 w-9 object-contain"
+              />
               <span className="text-lg md:text-xl font-bold text-black dark:text-white leading-tight">
-                Print<span className="text-[#E8440A]">Lab</span> 3D
+                Центр <span className="text-[#E8440A]">Строительного</span> Инжиниринга
               </span>
             </Link>
 
@@ -81,11 +82,13 @@ export default function Header() {
         <div className="fixed inset-0 z-[100] bg-black/50 md:hidden">
           <div className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white dark:bg-[#111111] shadow-xl overflow-y-auto">
             <div className="sticky top-0 z-10 flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111111]">
-              <div className="w-8 h-8 bg-[#E8440A] rounded-lg flex items-center justify-center flex-shrink-0">
-                <Icon name="Boxes" size={16} className="text-white" />
-              </div>
+              <img
+                src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
+                alt="Логотип ЦСИ"
+                className="h-8 w-8 object-contain"
+              />
               <span className="text-base font-bold text-black dark:text-white leading-tight">
-                Print<span className="text-[#E8440A]">Lab</span> 3D
+                Центр <span className="text-[#E8440A]">Строительного</span> Инжиниринга
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}

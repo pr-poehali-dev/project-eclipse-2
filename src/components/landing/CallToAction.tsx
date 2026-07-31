@@ -1,3 +1,5 @@
+import examplesImg from "@/assets/qidi-q2-examples.jpg"
+
 export default function CallToAction() {
   return (
     <section id="contact" className="card my-20 relative overflow-hidden shadow-md">
@@ -25,7 +27,7 @@ export default function CallToAction() {
 
         <div className="hidden md:block md:w-2/5 md:absolute md:right-0 md:top-0 md:bottom-0">
           <img
-            src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/04570a30-7d74-40bd-b4f3-fa86691f069e.jpg"
+            src={examplesImg}
             alt="Готовые изделия"
             className="w-full h-full object-cover"
           />

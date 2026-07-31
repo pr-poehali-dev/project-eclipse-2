@@ -57,7 +57,7 @@ export default function ScanOrderPage() {
   return (
     <>
       <Helmet>
-        <title>Заказать выезд на 3D-сканирование — PrintLab 3D</title>
+        <title>Заказать выезд на 3D-сканирование — Центр Строительного Инжиниринга</title>
         <meta name="description" content="Закажите выезд специалиста с 3D-сканером для оцифровки детали и последующей печати." />
       </Helmet>
       <main className="min-h-screen bg-white dark:bg-[#111111]">

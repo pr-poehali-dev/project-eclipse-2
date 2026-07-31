@@ -1,26 +1,14 @@
 import Icon from "@/components/ui/icon"
+import printingImg from "@/assets/qidi-q2-printing.jpg"
+import examplesImg from "@/assets/qidi-q2-examples.jpg"
+import nozzleImg from "@/assets/qidi-q2-nozzle.jpg"
+import scanResultImg from "@/assets/einstar-scan-result.jpg"
 
 const galleryImages = [
-  {
-    id: 1,
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/5c5019b7-8550-498c-8b28-12a8fe21b383.jpg",
-    title: "3D-печать деталей",
-  },
-  {
-    id: 2,
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/04570a30-7d74-40bd-b4f3-fa86691f069e.jpg",
-    title: "Готовые изделия",
-  },
-  {
-    id: 3,
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/bdf1a9ab-187a-4c20-82f9-e2ae74190b50.jpg",
-    title: "Печать пластиком",
-  },
-  {
-    id: 4,
-    image: "https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/files/75e5b8f6-7bad-4499-bacf-01430925f760.jpg",
-    title: "Печать смолой",
-  },
+  { id: 1, image: printingImg, title: "3D-печать деталей" },
+  { id: 2, image: examplesImg, title: "Готовые изделия" },
+  { id: 3, image: nozzleImg, title: "Печать пластиком" },
+  { id: 4, image: scanResultImg, title: "3D-скан модели" },
 ]
 
 export default function Gallery() {
