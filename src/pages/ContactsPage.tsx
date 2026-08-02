@@ -23,7 +23,7 @@ function CopyButton({ text }: { text: string }) {
     >
       {copied
         ? <Icon name="Check" size={16} className="text-green-500" />
-        : <Icon name="Copy" size={16} className="text-gray-400 hover:text-[#E8440A]" />
+        : <Icon name="Copy" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
       }
     </button>
   )
@@ -52,7 +52,7 @@ function RouteButton() {
       title="Построить маршрут"
       className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
     >
-      <Icon name="Navigation" size={16} className="text-gray-400 hover:text-[#E8440A]" />
+      <Icon name="Navigation" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
     </button>
   )
 }
@@ -72,7 +72,7 @@ export default function ContactsPage() {
         <section className="my-8">
           <h1 className="text-black dark:text-white mb-4 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
             Контактная
-            <span className="block text-[#E8440A]">информация</span>
+            <span className="block text-[#7A7FEE]">информация</span>
           </h1>
           <p className="mb-10 max-w-2xl text-gray-700 dark:text-gray-300">
             Мы находимся в Перми и готовы ответить на все ваши вопросы в рабочее время.
@@ -80,7 +80,7 @@ export default function ContactsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
-              <div className="bg-[#E8440A] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+              <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                 <Icon name="Phone" size={22} className="text-white" />
               </div>
               <div className="w-full">
@@ -88,7 +88,7 @@ export default function ContactsPage() {
                 <div className="flex items-center gap-2">
                   <a
                     href="tel:+79026405120"
-                    className="text-lg font-semibold text-black dark:text-white hover:text-[#E8440A] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                   >+7 902 640 51 20</a>
                   <div className="ml-auto flex items-center gap-0.5 flex-shrink-0">
                     <a
@@ -96,7 +96,7 @@ export default function ContactsPage() {
                       title="Позвонить"
                       className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
                     >
-                      <Icon name="Phone" size={16} className="text-gray-400 hover:text-[#E8440A]" />
+                      <Icon name="Phone" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
                     </a>
                     <CopyButton text="+79026405120" />
                   </div>
@@ -105,7 +105,7 @@ export default function ContactsPage() {
             </div>
 
             <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
-              <div className="bg-[#E8440A] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+              <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                 <Icon name="Mail" size={22} className="text-white" />
               </div>
               <div className="w-full">
@@ -115,7 +115,7 @@ export default function ContactsPage() {
                     href="https://mail.yandex.ru/compose?to=csiperm%40yandex.ru"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-lg font-semibold text-black dark:text-white hover:text-[#E8440A] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                   >
                     csiperm@yandex.ru
                   </a>
@@ -127,7 +127,7 @@ export default function ContactsPage() {
                       title="Написать письмо"
                       className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-shrink-0"
                     >
-                      <Icon name="Mail" size={16} className="text-gray-400 hover:text-[#E8440A]" />
+                      <Icon name="Mail" size={16} className="text-gray-400 hover:text-[#7A7FEE]" />
                     </a>
                     <CopyButton text="csiperm@yandex.ru" />
                   </div>
@@ -136,7 +136,7 @@ export default function ContactsPage() {
             </div>
 
             <div className="card p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-start gap-3">
-              <div className="bg-[#E8440A] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+              <div className="bg-[#7A7FEE] w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
                 <Icon name="MapPin" size={22} className="text-white" />
               </div>
               <div className="w-full">
@@ -144,7 +144,7 @@ export default function ContactsPage() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={openRoute}
-                    className="text-lg font-semibold text-black dark:text-white hover:text-[#E8440A] transition-colors text-left rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-lg font-semibold text-black dark:text-white hover:text-[#7A7FEE] transition-colors text-left rounded-full px-2 -mx-2 hover:bg-gray-100 dark:hover:bg-gray-800"
                   >
                     г. Пермь, ул. Целинная, 49
                   </button>
@@ -159,7 +159,7 @@ export default function ContactsPage() {
 
           <div className="card overflow-hidden shadow-lg">
             <div className="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center gap-2">
-              <Icon name="Map" size={18} className="text-[#E8440A]" />
+              <Icon name="Map" size={18} className="text-[#7A7FEE]" />
               <span className="font-medium text-black dark:text-white">Мы на карте — г. Пермь, ул. Целинная, 49</span>
             </div>
             <div className="w-full h-[450px]">

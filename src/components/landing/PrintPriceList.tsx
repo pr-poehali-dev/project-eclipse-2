@@ -24,7 +24,7 @@ export default function PrintPriceList() {
         <div className="flex flex-col md:flex-row items-center gap-8 mb-12 p-6 md:p-8 rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1a1a]">
           <img src={printerImg} alt="3D-принтер QIDI Q2" className="w-full max-w-[220px] h-auto object-contain flex-shrink-0" />
           <div>
-            <div className="text-[#E8440A] text-xs font-bold uppercase tracking-wider mb-2">Печатаем на QIDI Q2</div>
+            <div className="text-[#7A7FEE] text-xs font-bold uppercase tracking-wider mb-2">Печатаем на QIDI Q2</div>
             <h3 className="text-black dark:text-white font-bold text-xl mb-3">Профессиональный принтер с закрытой камерой</h3>
             <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600 dark:text-gray-300">
               <div>Область печати: <span className="text-black dark:text-white font-medium">270×270×256 мм</span></div>
@@ -32,7 +32,6 @@ export default function PrintPriceList() {
               <div>Точность: <span className="text-black dark:text-white font-medium">±0.2 мм</span></div>
               <div>Температура камеры: <span className="text-black dark:text-white font-medium">до 65°C</span></div>
               <div>Температура сопла: <span className="text-black dark:text-white font-medium">до 370°C</span></div>
-              <div>Фильтрация воздуха: <span className="text-black dark:text-white font-medium">HEPA + уголь</span></div>
             </div>
           </div>
         </div>
@@ -43,14 +42,14 @@ export default function PrintPriceList() {
             <div className="space-y-3">
               {materials.map((m) => (
                 <div key={m.id} className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 dark:border-gray-800">
-                  <div className="w-10 h-10 bg-[#E8440A]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name={m.icon} fallback="Box" size={18} className="text-[#E8440A]" />
+                  <div className="w-10 h-10 bg-[#7A7FEE]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name={m.icon} fallback="Box" size={18} className="text-[#7A7FEE]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-black dark:text-white font-semibold text-sm">{m.name}</div>
                     <div className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{m.desc}</div>
                   </div>
-                  <div className="text-[#E8440A] font-bold text-sm whitespace-nowrap">{m.price}</div>
+                  <div className="text-[#7A7FEE] font-bold text-sm whitespace-nowrap">{m.price}</div>
                 </div>
               ))}
             </div>
@@ -61,19 +60,19 @@ export default function PrintPriceList() {
             <div className="space-y-3">
               {services.map((s) => (
                 <div key={s.id} className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 dark:border-gray-800">
-                  <div className="w-10 h-10 bg-[#E8440A]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name={s.icon} fallback="Box" size={18} className="text-[#E8440A]" />
+                  <div className="w-10 h-10 bg-[#7A7FEE]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name={s.icon} fallback="Box" size={18} className="text-[#7A7FEE]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-black dark:text-white font-semibold text-sm">{s.name}</div>
                     <div className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{s.desc}</div>
                   </div>
-                  <div className="text-[#E8440A] font-bold text-sm whitespace-nowrap">{s.price}</div>
+                  <div className="text-[#7A7FEE] font-bold text-sm whitespace-nowrap">{s.price}</div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 p-4 rounded-xl bg-[#E8440A]/5 border border-[#E8440A]/20">
+            <div className="mt-6 p-4 rounded-xl bg-[#7A7FEE]/5 border border-[#7A7FEE]/20">
               <p className="text-sm text-gray-700 dark:text-gray-300">
                 Точную стоимость печати вашей детали рассчитаем после получения файла — зависит от объёма, материала и сложности геометрии.
               </p>

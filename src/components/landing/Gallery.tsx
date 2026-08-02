@@ -60,7 +60,7 @@ export default function Gallery() {
             <div className="absolute bottom-4 left-4">
               <div className="text-white font-bold text-base">{galleryImages[0].title}</div>
               <div className="flex items-center gap-1 text-gray-300 text-xs mt-1">
-                <Icon name="MapPin" size={11} className="text-[#E8440A]" />
+                <Icon name="MapPin" size={11} className="text-[#7A7FEE]" />
                 г. Пермь
               </div>
             </div>

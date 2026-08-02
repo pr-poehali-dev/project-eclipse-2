@@ -11,6 +11,8 @@ import ServicesPage from "./pages/ServicesPage"
 import ContactsPage from "./pages/ContactsPage"
 import PrintOrderPage from "./pages/PrintOrderPage"
 import ScanOrderPage from "./pages/ScanOrderPage"
+import CertificatesPage from "./pages/CertificatesPage"
+import EquipmentPage from "./pages/EquipmentPage"
 
 const queryClient = new QueryClient()
 
@@ -28,6 +30,8 @@ const App = () => (
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/print-order" element={<PrintOrderPage />} />
             <Route path="/scan-order" element={<ScanOrderPage />} />
+            <Route path="/certificates" element={<CertificatesPage />} />
+            <Route path="/equipment" element={<EquipmentPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </BrowserRouter>

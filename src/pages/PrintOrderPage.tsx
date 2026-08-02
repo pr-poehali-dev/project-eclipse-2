@@ -118,7 +118,7 @@ export default function PrintOrderPage() {
 
           {success ? (
             <div className="card p-8 max-w-xl text-center">
-              <div className="w-14 h-14 bg-[#E8440A] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 bg-[#7A7FEE] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="Check" size={26} className="text-white" />
               </div>
               <h2 className="text-xl font-semibold text-black dark:text-white mb-2">Заявка отправлена!</h2>
@@ -138,7 +138,7 @@ export default function PrintOrderPage() {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E8440A]"
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7A7FEE]"
                     placeholder="Ваше имя"
                   />
                 </div>
@@ -148,7 +148,7 @@ export default function PrintOrderPage() {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E8440A]"
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7A7FEE]"
                     placeholder="+7 900 000 00 00"
                   />
                 </div>
@@ -160,15 +160,15 @@ export default function PrintOrderPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E8440A]"
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7A7FEE]"
                   placeholder="you@example.com"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-black dark:text-white mb-1.5">3D-модель (STL, OBJ)</label>
-                <label className="flex items-center gap-3 px-4 py-3 rounded-lg border border-dashed border-gray-300 dark:border-gray-700 cursor-pointer hover:border-[#E8440A] transition-colors">
-                  <Icon name="Upload" size={18} className="text-[#E8440A] flex-shrink-0" />
+                <label className="flex items-center gap-3 px-4 py-3 rounded-lg border border-dashed border-gray-300 dark:border-gray-700 cursor-pointer hover:border-[#7A7FEE] transition-colors">
+                  <Icon name="Upload" size={18} className="text-[#7A7FEE] flex-shrink-0" />
                   <span className="text-sm text-gray-600 dark:text-gray-300 truncate">
                     {file ? file.name : "Нажмите, чтобы прикрепить файл (необязательно)"}
                   </span>
@@ -187,7 +187,7 @@ export default function PrintOrderPage() {
                   <select
                     value={material}
                     onChange={(e) => setMaterial(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E8440A]"
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7A7FEE]"
                   >
                     {materials.map((m) => (
                       <option key={m} value={m}>{m}</option>
@@ -199,7 +199,7 @@ export default function PrintOrderPage() {
                   <select
                     value={color}
                     onChange={(e) => setColor(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E8440A]"
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7A7FEE]"
                   >
                     {colors.map((c) => (
                       <option key={c} value={c}>{c}</option>
@@ -215,7 +215,7 @@ export default function PrintOrderPage() {
                   min={1}
                   value={quantity}
                   onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-                  className="w-full md:w-40 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E8440A]"
+                  className="w-full md:w-40 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7A7FEE]"
                 />
               </div>
 
@@ -225,7 +225,7 @@ export default function PrintOrderPage() {
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                   rows={4}
-                  className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E8440A] resize-none"
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7A7FEE] resize-none"
                   placeholder="Дополнительные пожелания, сроки, размеры..."
                 />
               </div>

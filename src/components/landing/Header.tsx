@@ -21,6 +21,8 @@ export default function Header() {
     { to: "/services", label: "Услуги" },
     { to: "/print-order", label: "3D печать" },
     { to: "/scan-order", label: "Сканирование" },
+    { to: "/certificates", label: "Сертификаты" },
+    { to: "/equipment", label: "Оборудование" },
     { to: "/contacts", label: "Контакты" },
   ]
 

@@ -46,7 +46,7 @@ export default function Formats() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {formats.map((item) => (
-            <div key={item.id} className="group flex flex-col bg-white border border-gray-100 hover:border-[#E8440A] transition-colors duration-300 overflow-hidden shadow-sm hover:shadow-md">
+            <div key={item.id} className="group flex flex-col bg-white border border-gray-100 hover:border-[#7A7FEE] transition-colors duration-300 overflow-hidden shadow-sm hover:shadow-md">
               {/* Фото */}
               <div className="relative h-48 overflow-hidden bg-[#1c1c1c]">
                 <img
@@ -54,20 +54,20 @@ export default function Formats() {
                   alt={item.title}
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-60 group-hover:scale-105 transition-all duration-500"
                 />
-                <div className="absolute top-0 left-0 w-1 h-full bg-[#E8440A]" />
-                <div className="absolute top-4 right-4 w-9 h-9 bg-[#E8440A] flex items-center justify-center">
+                <div className="absolute top-0 left-0 w-1 h-full bg-[#7A7FEE]" />
+                <div className="absolute top-4 right-4 w-9 h-9 bg-[#7A7FEE] flex items-center justify-center">
                   <Icon name={item.icon} fallback="Check" size={16} className="text-white" />
                 </div>
               </div>
               {/* Текст */}
               <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-[#1a1a1a] font-bold text-base mb-2 group-hover:text-[#E8440A] transition-colors">
+                <h3 className="text-[#1a1a1a] font-bold text-base mb-2 group-hover:text-[#7A7FEE] transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed flex-1">{item.desc}</p>
                 <a
                   href="/services"
-                  className="mt-4 flex items-center gap-1.5 text-[#E8440A] text-xs font-bold uppercase tracking-wider hover:gap-3 transition-all"
+                  className="mt-4 flex items-center gap-1.5 text-[#7A7FEE] text-xs font-bold uppercase tracking-wider hover:gap-3 transition-all"
                 >
                   {item.cta}
                   <Icon name="ArrowRight" size={12} />

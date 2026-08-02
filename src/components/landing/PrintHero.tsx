@@ -9,7 +9,7 @@ export default function PrintHero() {
           <div className="section-label">3D-печать и сканирование</div>
           <h1 className="text-black dark:text-white text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
             Напечатаем деталь
-            <span className="block text-[#E8440A]">любой сложности</span>
+            <span className="block text-[#7A7FEE]">любой сложности</span>
             на заказ
           </h1>
           <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
@@ -26,11 +26,11 @@ export default function PrintHero() {
 
           <div className="flex gap-8 mt-10 pt-8 border-t border-gray-200 dark:border-gray-800">
             <div>
-              <div className="text-[#E8440A] text-3xl font-black">1-3 дня</div>
+              <div className="text-[#7A7FEE] text-3xl font-black">1-3 дня</div>
               <div className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider mt-1">срок изготовления</div>
             </div>
             <div>
-              <div className="text-[#E8440A] text-3xl font-black">10+</div>
+              <div className="text-[#7A7FEE] text-3xl font-black">10+</div>
               <div className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider mt-1">видов материалов</div>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function PrintHero() {
             },
           ].map((item) => (
             <div key={item.title} className="flex items-center gap-4 px-6 py-5">
-              <div className="w-10 h-10 bg-[#E8440A] rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-[#7A7FEE] rounded-lg flex items-center justify-center flex-shrink-0">
                 <Icon name={item.icon} fallback="Check" size={18} className="text-white" />
               </div>
               <div>

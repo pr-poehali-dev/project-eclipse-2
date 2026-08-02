@@ -121,9 +121,9 @@
 
   .btn-outline-orange {
     background-color: transparent;
-    color: #e8440a;
-    border: 1.5px solid #e8440a;
-    @apply px-6 py-2.5 rounded-md hover:bg-[#e8440a] hover:text-white transition-all text-sm font-medium inline-flex items-center gap-2;
+    color: #7a7fee;
+    border: 1.5px solid #7a7fee;
+    @apply px-6 py-2.5 rounded-md hover:bg-[#7a7fee] hover:text-white transition-all text-sm font-medium inline-flex items-center gap-2;
   }
 
   .section-title {
@@ -137,7 +137,7 @@
   }
 
   .section-label {
-    color: #e8440a;
+    color: #7a7fee;
     @apply text-xs font-bold uppercase tracking-[0.15em] mb-3 flex items-center gap-2;
   }
 
@@ -146,7 +146,7 @@
     display: inline-block;
     width: 20px;
     height: 2px;
-    background-color: #e8440a;
+    background-color: #7a7fee;
     flex-shrink: 0;
   }
 

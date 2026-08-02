@@ -7,7 +7,7 @@ export default function PrintCallToAction() {
         <div className="w-full md:w-3/5 z-10">
           <div className="section-label">Свяжитесь с нами</div>
           <h2 className="text-black dark:text-white mb-6 text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-            Готовы напечатать <span className="text-[#E8440A]">вашу деталь</span>
+            Готовы напечатать <span className="text-[#7A7FEE]">вашу деталь</span>
           </h2>
           <p className="my-6 text-sm md:text-base max-w-md text-gray-700 dark:text-gray-300">
             Есть готовая 3D-модель или нужно сначала отсканировать деталь?
