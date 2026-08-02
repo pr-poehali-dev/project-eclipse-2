@@ -26,10 +26,6 @@ export default function PrintHero() {
 
           <div className="flex gap-8 mt-10 pt-8 border-t border-gray-200 dark:border-gray-800">
             <div>
-              <div className="text-[#E8440A] text-3xl font-black">0.05мм</div>
-              <div className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider mt-1">точность печати</div>
-            </div>
-            <div>
               <div className="text-[#E8440A] text-3xl font-black">1-3 дня</div>
               <div className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider mt-1">срок изготовления</div>
             </div>
