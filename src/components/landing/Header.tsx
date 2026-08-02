@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
 import { Link, useLocation } from "react-router-dom"
+
+interface NavLink {
+  to: string
+  label: string
+  children?: { to: string; label: string }[]
+}
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -17,14 +25,27 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
-    { to: "/services", label: "Услуги" },
-    { to: "/print-order", label: "3D печать" },
-    { to: "/scan-order", label: "Сканирование" },
-    { to: "/certificates", label: "Сертификаты" },
-    { to: "/equipment", label: "Оборудование" },
+  const navLinks: NavLink[] = [
+    {
+      to: "/services",
+      label: "Услуги",
+      children: [
+        { to: "/print-order", label: "3D печать" },
+        { to: "/scan-order", label: "Сканирование" },
+      ],
+    },
+    {
+      to: "/equipment",
+      label: "Оборудование",
+      children: [
+        { to: "/certificates", label: "Сертификаты" },
+      ],
+    },
     { to: "/contacts", label: "Контакты" },
   ]
+
+  const isActive = (link: NavLink) =>
+    location.pathname === link.to || (link.children?.some((c) => c.to === location.pathname) ?? false)
 
   return (
     <>
@@ -34,33 +55,65 @@ export default function Header() {
         }`}
       >
         <div className="container py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2">
+          <div className="flex items-center justify-between gap-4">
+            <Link to="/" className="flex items-center gap-2 flex-shrink-0">
               <img
                 src="https://cdn.poehali.dev/projects/f76cda14-7429-4cfa-98c1-c5a650df2ebc/bucket/favicon-nobg.png"
                 alt="Логотип ЦСИ"
                 className="h-9 w-9 object-contain"
               />
-              <span className="text-lg md:text-xl font-bold text-black dark:text-white leading-tight">
+              <span className="text-lg md:text-xl font-bold text-black dark:text-white leading-tight whitespace-nowrap">
                 Центр <span className="text-[#7A7FEE]">Строительного</span> Инжиниринга
               </span>
             </Link>
 
             <div className="flex items-center space-x-2 md:space-x-4">
               <nav className="hidden md:block">
-                <ul className="flex space-x-2">
+                <ul className="flex space-x-1">
                   {navLinks.map((link) => (
-                    <li key={link.to}>
+                    <li
+                      key={link.to}
+                      className="relative"
+                      onMouseEnter={() => link.children && setOpenDropdown(link.to)}
+                      onMouseLeave={() => link.children && setOpenDropdown(null)}
+                    >
                       <Link
                         to={link.to}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                          location.pathname === link.to
+                        className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                          isActive(link)
                             ? "bg-[#7A7FEE] text-white"
                             : "text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                         }`}
                       >
                         {link.label}
+                        {link.children && <ChevronDown className="h-3.5 w-3.5" />}
                       </Link>
+
+                      {link.children && (
+                        <div
+                          className={`absolute left-0 top-full pt-2 transition-all duration-150 ${
+                            openDropdown === link.to
+                              ? "opacity-100 visible translate-y-0"
+                              : "opacity-0 invisible -translate-y-1"
+                          }`}
+                        >
+                          <div className="nav-dropdown-content !p-2 flex flex-col gap-1">
+                            {link.children.map((child) => (
+                              <Link
+                                key={child.to}
+                                to={child.to}
+                                className={`px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+                                  location.pathname === child.to
+                                    ? "bg-[#7A7FEE] text-white"
+                                    : "text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                                }`}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -114,17 +167,53 @@ export default function Header() {
                 </li>
                 {navLinks.map((link) => (
                   <li key={link.to}>
-                    <Link
-                      to={link.to}
-                      className={`flex items-center py-3 px-4 rounded-lg text-base hover:bg-gray-100 dark:hover:bg-gray-800 ${
-                        location.pathname === link.to
-                          ? "text-[#7A7FEE] font-medium"
-                          : "text-gray-800 dark:text-gray-200"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
+                    <div className="flex items-center">
+                      <Link
+                        to={link.to}
+                        className={`flex-1 flex items-center py-3 px-4 rounded-lg text-base hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                          isActive(link)
+                            ? "text-[#7A7FEE] font-medium"
+                            : "text-gray-800 dark:text-gray-200"
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                      {link.children && (
+                        <button
+                          onClick={() =>
+                            setMobileExpanded(mobileExpanded === link.to ? null : link.to)
+                          }
+                          className="p-3 text-gray-500 dark:text-gray-400"
+                          aria-label="Развернуть подменю"
+                        >
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${
+                              mobileExpanded === link.to ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                      )}
+                    </div>
+                    {link.children && mobileExpanded === link.to && (
+                      <ul className="pl-4 space-y-1 mb-1">
+                        {link.children.map((child) => (
+                          <li key={child.to}>
+                            <Link
+                              to={child.to}
+                              className={`flex items-center py-2.5 px-4 rounded-lg text-sm hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                                location.pathname === child.to
+                                  ? "text-[#7A7FEE] font-medium"
+                                  : "text-gray-600 dark:text-gray-300"
+                              }`}
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>
